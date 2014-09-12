@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XMLScore</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_start">Start</string>
+    <string name="select_text_main_clef">Select the desired clef</string>
+    <string name="select_text_main_measure">Select the desired measure</string>
+    <string name="button_main">Create stave</string>
+    <string name="save">Save Stave</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="save_path">Path to save the Stave</string>
+    <string name="default_path">Enter a path</string>
+    <string name="languages">Language</string>
+    <string name="app_name_es">XMLScore</string>
+    <string name="title_section1_es">Seccion 1</string>
+    <string name="title_section2_es">Seccion 2</string>
+    <string name="title_section3_es">Seccion 3</string>
+    <string name="hello_world_es">Hello world!</string>
+    <string name="action_settings_es">Ajustes</string>
+    <string name="title_activity_start_es">Iniciar</string>
+    <string name="select_text_main_clef_es">Sellecione la clave deseada</string>
+    <string name="select_text_main_measure_es">Seleccione el compas deseado</string>
+    <string name="button_main_es">Crear Pentagrama</string>
+    <string name="save_es">Guardar Pentagrama</string>
+    <string name="settings_es">Ajustes</string>
+    <string name="title_activity_settings_es">Ajustes</string>
+    <string name="save_path_es">Ruta para guardar el Pentagrama</string>
+    <string name="default_path_es">Introduzca ruta</string>
+    <string name="languages_es">Idioma</string>
+    <string name="stave">Stave</string>
+    <string name="stave_es">Pentagrama</string>
+
+</resources>
