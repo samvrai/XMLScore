@@ -32,8 +32,11 @@ public class Stave extends FragmentActivity {
             }
         }
 
+        ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager());
+
         vStave = (ViewPager) findViewById(R.id.lStave);
-        vStave.setAdapter(new ViewPageAdapter(getSupportFragmentManager()));
+        vStave.setAdapter(adapter);
+
 
     }
 

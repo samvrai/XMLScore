@@ -1,13 +1,12 @@
 package com.aeg.xmlscore;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -22,10 +21,7 @@ import java.util.ArrayList;
 public class Stage extends Fragment {
 
     private ArrayList<Note> stageNotes;
-    private Canvas stavePiece;
     private StaveDrawer drawer;
-    private LinearLayout lLayout;
-    private int index;
 
     /**
      * Will take values of:
@@ -37,11 +33,11 @@ public class Stage extends Fragment {
 
     public Stage() {
         this.stageNotes = new ArrayList<Note>();
-        this.stavePiece = new Canvas();
         Context ctx = getActivity();
         this.drawer = new StaveDrawer(ctx);
-        this.lLayout = new LinearLayout(this.getActivity());
-        lLayout.addView(drawer);
+
+        ViewPager vp = (ViewPager) getView().findViewById(R.id.lStave);
+        vp.addView(drawer);
 
     }
 
