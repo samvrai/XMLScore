@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class Stave extends FragmentActivity {
 
-
-    private StavesAdapter fAdapter;
     private ViewPager vStave;
 
 
@@ -20,8 +18,6 @@ public class Stave extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stave);
-
-
 
         TextView pClef = (TextView) findViewById(R.id.clef);
         TextView pMeasure = (TextView) findViewById(R.id.title);
@@ -36,12 +32,8 @@ public class Stave extends FragmentActivity {
             }
         }
 
-        fAdapter = new StavesAdapter(getSupportFragmentManager());
         vStave = (ViewPager) findViewById(R.id.lStave);
-        vStave.setAdapter(fAdapter);
-
-
-
+        vStave.setAdapter(new ViewPageAdapter(getSupportFragmentManager()));
 
     }
 
