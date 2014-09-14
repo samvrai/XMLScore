@@ -84,19 +84,19 @@ public class Start extends Activity {
             Button btn = (Button) findViewById(R.id.bNewStave);
             btn.setText(getText(R.string.button_main_es));
 
-            TextView tvw = (TextView) findViewById(R.id.clef);
+            TextView tvw = (TextView) findViewById(R.id.textClef);
             tvw.setText(getText(R.string.select_text_main_clef_es));
 
-            tvw = (TextView) findViewById(R.id.measure);
+            tvw = (TextView) findViewById(R.id.textMeasure);
             tvw.setText(getText(R.string.select_text_main_measure_es));
         } else {
             Button btn = (Button) findViewById(R.id.bNewStave);
             btn.setText(getText(R.string.button_main));
 
-            TextView tvw = (TextView) findViewById(R.id.clef);
+            TextView tvw = (TextView) findViewById(R.id.textClef);
             tvw.setText(getText(R.string.select_text_main_clef));
 
-            tvw = (TextView) findViewById(R.id.measure);
+            tvw = (TextView) findViewById(R.id.textMeasure);
             tvw.setText(getText(R.string.select_text_main_measure));
         }
     }

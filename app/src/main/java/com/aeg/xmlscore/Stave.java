@@ -6,12 +6,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 
 public class Stave extends FragmentActivity {
 
-    private ViewPager vStave;
+    private ViewPageAdapter pAdapter;
 
 
     @Override
@@ -19,23 +18,16 @@ public class Stave extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stave);
 
-        TextView pClef = (TextView) findViewById(R.id.clef);
-        TextView pMeasure = (TextView) findViewById(R.id.title);
-
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             String sClef = extras.getString("CLEF");
             String sMeas = extras.getString("MEASURE");
             if(sClef != null && sMeas != null) {
-                pClef.setText(sClef);
-                pMeasure.setText(sMeas);
+                setTitle("Clef " + sClef + ", measure " + sMeas);
             }
         }
 
-        ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager());
-
-        vStave = (ViewPager) findViewById(R.id.lStave);
-        vStave.setAdapter(adapter);
+        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), (ViewPager) findViewById(R.id.lStave));
 
 
     }

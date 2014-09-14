@@ -23,10 +23,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/select_text_main_clef"
-        android:id="@+id/clef"
-        android:layout_marginTop="97dp"
-        android:layout_marginLeft="37dp"
-        android:layout_below="@+id/title"
+        android:id="@+id/textClef"
+        android:layout_above="@+id/spinnerClef"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -35,36 +33,37 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/select_text_main_measure"
-        android:id="@+id/measure"
+        android:id="@+id/textMeasure"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/clef"
-        android:layout_alignStart="@+id/clef" />
+        android:layout_alignLeft="@+id/textMeasure"
+        android:layout_alignStart="@+id/textClef" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerClef"
-        android:layout_below="@+id/clef"
-        android:layout_alignLeft="@+id/clef"
-        android:layout_alignStart="@+id/clef" />
+        android:layout_above="@+id/textMeasure"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="49dp" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerMeasure"
-        android:layout_below="@+id/measure"
-        android:layout_alignLeft="@+id/measure"
-        android:layout_alignStart="@+id/measure" />
+        android:layout_below="@+id/textMeasure"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_main"
         android:id="@+id/bNewStave"
-        android:layout_below="@+id/spinnerMeasure"
+        android:onClick="newStave"
+        android:layout_marginBottom="57dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/title"
-        android:layout_alignEnd="@+id/title"
-        android:layout_marginTop="59dp"
-        android:onClick="newStave"/>
+        android:layout_alignEnd="@+id/title" />
 
 </RelativeLayout>

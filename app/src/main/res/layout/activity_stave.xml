@@ -5,27 +5,6 @@
     android:background="#0010B286"
     android:orientation="vertical">
 
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp">
-
-        <TextView
-            android:layout_width="137dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/clef"
-            android:layout_gravity="start" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/title" />
-
-    </LinearLayout>
-
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -37,7 +16,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/lNotes"
         android:layout_width="match_parent"
-        android:layout_height="225dp"
+        android:layout_height="fill_parent"
         tools:context=".Stave"
         android:background="#ffb6ffdf" />
 
