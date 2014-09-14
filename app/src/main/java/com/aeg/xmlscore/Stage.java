@@ -39,6 +39,7 @@ public class Stage extends Fragment {
         ViewPager vp = (ViewPager) getView().findViewById(R.id.lStave);
         vp.addView(drawer);
 
+
     }
 
     @Override

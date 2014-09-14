@@ -29,6 +29,8 @@ public class Stave extends FragmentActivity {
 
         this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), (ViewPager) findViewById(R.id.lStave));
 
+        this.populate();
+
 
     }
 
@@ -70,6 +72,12 @@ public class Stave extends FragmentActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void populate() {
+
+        Stage stg1 = new Stage();
+        getSupportFragmentManager().beginTransaction().add(R.id.lStave ,stg1);
     }
 
 }

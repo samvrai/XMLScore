@@ -29,7 +29,7 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter implements ViewPa
 
     @Override
     public int getCount() {
-        return 0;
+        return this.myStages.size();
     }
 
     public void addStage(Stage pStage) {
