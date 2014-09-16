@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_height">250dp</dimen>
     <dimen name="main_title_text_size">30sp</dimen>
+    <dimen name="picture_height">103dp</dimen>
+    <dimen name="picture_width">180dp</dimen>
 </resources>

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,11 +34,7 @@ public class Stage extends Fragment {
 
     public Stage() {
         this.stageNotes = new ArrayList<Note>();
-        Context ctx = getActivity();
-        this.drawer = new StaveDrawer(ctx);
 
-        ViewPager vp = (ViewPager) getView().findViewById(R.id.lStave);
-        vp.addView(drawer);
 
 
     }
@@ -45,6 +42,16 @@ public class Stage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Context ctx = getActivity();
+        this.drawer = new StaveDrawer(ctx);
+
+        ViewPager vp = (ViewPager) getView().findViewById(R.id.lStave);
+        vp.addView(drawer);
+
+
+        Toast.makeText(ctx, this.howManyNotes, Toast.LENGTH_SHORT).show();
+
 
 
 
