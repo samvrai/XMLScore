@@ -1,5 +1,6 @@
 package com.aeg.xmlscore;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -10,16 +11,14 @@ import java.util.ArrayList;
 /**
  * Created by nemo on 9/12/14.
  */
-public class ViewPageAdapter extends FragmentStatePagerAdapter implements ViewPager.OnPageChangeListener{
+public class ViewPageAdapter extends FragmentStatePagerAdapter{
 
     private ArrayList<Stage> myStages = new ArrayList<Stage>();
-    private ViewPager pager;
 
-    public ViewPageAdapter(FragmentManager fm, ViewPager pVp) {
+
+    public ViewPageAdapter(FragmentManager fm) {
         super(fm);
-        this.pager = pVp;
-        this.pager.setAdapter(this);
-        this.pager.setOnPageChangeListener(this);
+        myStages.add(new Stage());
     }
 
     @Override
@@ -29,30 +28,17 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter implements ViewPa
 
     @Override
     public int getCount() {
+
         return this.myStages.size();
     }
 
-    public void addStage(Stage pStage) {
-        this.myStages.add(pStage);
+    public void addStage() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("number", this.getCount());
+        Stage stage = new Stage();
+        stage.setArguments(bundle);
+        this.myStages.add(stage);
+        this.notifyDataSetChanged();
     }
 
-    private void update() {
-        this.pager.setAdapter(null);
-        this.pager.setAdapter(this);
-    }
-
-    @Override
-    public void onPageScrolled(int i, float v, int i2) {
-
-    }
-
-    @Override
-    public void onPageSelected(int i) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int i) {
-
-    }
 }

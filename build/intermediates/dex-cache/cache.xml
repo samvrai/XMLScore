@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8bcc14ba6704f1033f74471f2ce8ed8fe83104a7.jar"
-        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
-    <item
-        dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-b364f294551e62de432cd62ce8f382b301bf0246.jar"
-        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
-    <item
-        dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/classes-865efc70d56ef9377a7f930f45402036cbaedf43.jar"
-        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
-    <item
-        dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-f50f597d9217e331f8e66015492499685f9db236.jar"
         jar="/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-f50f597d9217e331f8e66015492499685f9db236.jar" />
+    </item>
     <item
-        dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/classes-2abd688c70e5ca1fe9fb0f52a958ebc685d19515.jar"
+        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/classes-865efc70d56ef9377a7f930f45402036cbaedf43.jar" />
+    </item>
+    <item
+        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8bcc14ba6704f1033f74471f2ce8ed8fe83104a7.jar" />
+    </item>
+    <item
         jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/classes-2abd688c70e5ca1fe9fb0f52a958ebc685d19515.jar" />
+    </item>
+    <item
+        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-b364f294551e62de432cd62ce8f382b301bf0246.jar" />
+    </item>
 
-</pre-dex-items>
+</items>

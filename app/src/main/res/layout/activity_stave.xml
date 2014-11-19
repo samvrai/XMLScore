@@ -7,9 +7,9 @@
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:id="@+id/lStave"
-        android:background="#FAF3C1"/>
+        />
 
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,6 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         tools:context=".Stave"
-        android:background="#ffb6ffdf" />
+        />
 
 </LinearLayout>

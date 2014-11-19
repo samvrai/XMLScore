@@ -1,13 +1,13 @@
 package com.aeg.xmlscore;
 
-import android.content.Context;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,8 +21,7 @@ import java.util.ArrayList;
 
 public class Stage extends Fragment {
 
-    private ArrayList<Note> stageNotes;
-    private StaveDrawer drawer;
+    /*private ArrayList<Note> stageNotes;
 
     /**
      * Will take values of:
@@ -31,28 +30,16 @@ public class Stage extends Fragment {
      * -. -1                Emptied.
      */
     private int howManyNotes = 0;
+    private ArrayList<Note> stageNotes;
+    private Liner liner;
 
     public Stage() {
         this.stageNotes = new ArrayList<Note>();
-
-
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Context ctx = getActivity();
-        this.drawer = new StaveDrawer(ctx);
-
-        ViewPager vp = (ViewPager) getView().findViewById(R.id.lStave);
-        vp.addView(drawer);
-
-
-        Toast.makeText(ctx, this.howManyNotes, Toast.LENGTH_SHORT).show();
-
-
 
 
     }

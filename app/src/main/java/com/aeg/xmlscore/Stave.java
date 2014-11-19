@@ -6,11 +6,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class Stave extends FragmentActivity {
 
     private ViewPageAdapter pAdapter;
+    private NotesAdapter nAdapter;
+    private ViewPager vpager, notesPager;
 
 
     @Override
@@ -27,10 +31,14 @@ public class Stave extends FragmentActivity {
             }
         }
 
-        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), (ViewPager) findViewById(R.id.lStave));
+        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager());
+        this.vpager = (ViewPager) findViewById(R.id.lStave);
+        this.vpager.setAdapter(pAdapter);
 
-        this.populate();
 
+        this.nAdapter = new NotesAdapter(getSupportFragmentManager());
+        this.notesPager = (ViewPager) findViewById(R.id.lNotes);
+        this.notesPager.setAdapter(nAdapter);
 
     }
 
@@ -74,10 +82,9 @@ public class Stave extends FragmentActivity {
         }
     }
 
-    private void populate() {
-
-        Stage stg1 = new Stage();
-        getSupportFragmentManager().beginTransaction().add(R.id.lStave ,stg1);
+    public void addStage(View view) {
+        pAdapter.addStage();
+        Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
     }
 
 }

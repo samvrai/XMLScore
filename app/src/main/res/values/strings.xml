@@ -35,6 +35,7 @@
     <string name="languages_es">Idioma</string>
     <string name="stave">Stave</string>
     <string name="stave_es">Pentagrama</string>
+    <string name="lines">Lines to be displayed</string>
 
 
 

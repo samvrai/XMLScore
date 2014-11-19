@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1"
+    android:id="@+id/notesA"
+    android:background="#F0CC">
+
+
+    <Button
+        android:background="#FFFFFF"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="ADD"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp"
+        android:onClick="addStage"/>
+</RelativeLayout>
