@@ -20,7 +20,7 @@ public class Liner extends View {
     @Override
     public void onDraw(Canvas canvas) {
         canvas.drawLine(20, 5, 200, 5, paint);
-        
+
     }
 
 }

@@ -42,6 +42,7 @@ public class Stage extends Fragment {
         super.onCreate(savedInstanceState);
 
 
+
     }
 
     @Override
