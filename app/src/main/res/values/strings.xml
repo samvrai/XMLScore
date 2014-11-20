@@ -47,4 +47,26 @@
     <string name="content_eight">Eight note</string>
     <string name="content_sixteenth">Sixteenth note</string>
 
+    <string name="line_cm">Cm</string>
+    <string name="line_dm">Dm</string>
+    <string name="line_em">Em</string>
+    <string name="line_emb">EmB</string>
+    <string name="line_fm">Fm</string>
+    <string name="line_gm">Gm</string>
+    <string name="line_gmb">GmB</string>
+    <string name="line_am">Am</string>
+    <string name="line_bm">Bm</string>
+    <string name="line_bmb">BmB</string>
+    <string name="line_cmm">CM</string>
+    <string name="line_d_mm">DM</string>
+    <string name="line_d_mmb">DMB</string>
+    <string name="line_e_mm">EM</string>
+    <string name="line_f_mm">FM</string>
+    <string name="line_f_mmb">FMB</string>
+    <string name="line_g_mm">GM</string>
+    <string name="line_a_mm">AM</string>
+    <string name="line_a_mmb">AMB</string>
+    <string name="line_b_mm">BM</string>
+    <string name="line_cmmm">CMM</string>
+
 </resources>

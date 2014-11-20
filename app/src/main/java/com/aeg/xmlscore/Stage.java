@@ -7,9 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by nemo on 9/11/14.
@@ -29,11 +32,9 @@ public class Stage extends Fragment {
      * -. Measure>=N>0      Meanwhile.
      * -. -1                Emptied.
      */
-    private int howManyNotes = 0;
     private ArrayList<Note> stageNotes;
-    private Liner liner;
 
-    public Stage() {
+    public Stage(){
         this.stageNotes = new ArrayList<Note>();
     }
 
@@ -47,17 +48,92 @@ public class Stage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_stave, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_stave, container, false);
+
+
+        ImageView iv = (ImageView)v.findViewById(R.id.am);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.aM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.aMb);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.bm);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.bM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.bmb);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.cm);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.cM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.cMM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.dm);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.dM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.dMb);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.em);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.eM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.emb);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.fm);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.fM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.fMb);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.gm);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.gM);
+        iv.setOnDragListener(new DragListener(this));
+
+        iv = (ImageView) v.findViewById(R.id.gmb);
+        iv.setOnDragListener(new DragListener(this));
+
+        return v;
     }
 
+    public int totalWeight() {
+        int r = 0;
+        Iterator<Note> it = this.stageNotes.iterator();
+        while(it.hasNext()) {
+            r += it.next().getWeight();
+        }
 
-
-    public int filled() {
-        return this.howManyNotes;
+        return r;
     }
 
-    public int addNote(Note pNote) {
-        this.stageNotes.add(pNote);
-        return 0;
+    public void addNote(Note pNote) {
+
+        if(this.totalWeight() + pNote.getWeight() <= 0) {
+            this.stageNotes.add(pNote);
+        } else {
+            Toast.makeText(getActivity(), "This note doesn't fit", Toast.LENGTH_SHORT).show();
+        }
     }
 }

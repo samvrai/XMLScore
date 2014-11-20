@@ -28,19 +28,19 @@ public class NoteDrawerB extends Fragment {
         View v = inflater.inflate(R.layout.fragment_notes_b, container, false);
 
         ImageView iv = (ImageView)v.findViewById(R.id.whole);
-        iv.setOnLongClickListener(new Dragger(this.getActivity()));
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
         iv = (ImageView)v.findViewById(R.id.half);
-        iv.setOnLongClickListener(new Dragger(this.getActivity()));
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
         iv = (ImageView)v.findViewById(R.id.quarter);
-        iv.setOnLongClickListener(new Dragger(this.getActivity()));
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
         iv = (ImageView)v.findViewById(R.id.eight);
-        iv.setOnLongClickListener(new Dragger(this.getActivity()));
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
         iv = (ImageView)v.findViewById(R.id.sixteenth);
-        iv.setOnLongClickListener(new Dragger(this.getActivity()));
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
 
         return v;

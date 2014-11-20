@@ -12,13 +12,15 @@ import android.view.View;
 /**
  * Created by will on 19/11/14.
  */
-public class Dragger implements View.OnLongClickListener {
+public class LCListener implements View.OnLongClickListener {
 
     private Context context = null;
 
-    public Dragger(Context ctx) {
+    public LCListener(Context ctx) {
         context = ctx;
     }
+
+
 
     @Override
     public boolean onLongClick(View v) {
@@ -27,7 +29,7 @@ public class Dragger implements View.OnLongClickListener {
         ClipData data = ClipData.newPlainText("", "");
 
         Vibrator vibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(100);
+        vibrator.vibrate(50);
         v.startDrag(data, ds, v, 0);
         return false;
     }

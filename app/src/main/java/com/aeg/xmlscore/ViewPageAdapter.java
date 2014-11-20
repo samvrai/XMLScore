@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,8 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
 
     public ViewPageAdapter(FragmentManager fm) {
         super(fm);
-        myStages.add(new Stage());
+        Stage stg = new Stage();
+        myStages.add(stg);
     }
 
     @Override
@@ -33,11 +33,7 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
     }
 
     public void addStage() {
-        Bundle bundle = new Bundle();
-        bundle.putInt("number", this.getCount());
-        Stage stage = new Stage();
-        stage.setArguments(bundle);
-        this.myStages.add(stage);
+        this.myStages.add(new Stage());
         this.notifyDataSetChanged();
     }
 

@@ -32,6 +32,10 @@ public class Stave extends FragmentActivity {
             }
         }
 
+
+        int stageMax = extras.getString("MEASURE").charAt(0);
+
+
         this.pAdapter = new ViewPageAdapter(getSupportFragmentManager());
         this.vpager = (ViewPager) findViewById(R.id.lStave);
         this.vpager.setAdapter(pAdapter);
