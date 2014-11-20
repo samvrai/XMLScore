@@ -7,34 +7,70 @@
     android:layout_height="fill_parent"
     android:weightSum="1"
     android:id="@+id/notesA"
-    android:background="#F0CC">
+    android:background="#DBFFFB">
 
-
-    <Button
-        android:background="#FFFFFF"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="ADD2"
-        android:id="@+id/button"
-        android:layout_marginBottom="40dp"
-        android:onClick="addStage"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="34dp"
-        android:layout_marginEnd="34dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/noteWhole"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
-        android:src="@drawable/whole"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/noteWhole"
-        android:focusable="true"
-        android:longClickable="true" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/whole"
+        android:contentDescription="@string/content_whole"
+        android:src="@drawable/wholenote"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="0dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/half"
+
+        android:contentDescription="@string/content_half"
+        android:src="@drawable/halfnote"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="125dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/quarter"
+
+        android:contentDescription="@string/content_quarter"
+        android:src="@drawable/quarternote"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="250dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/eight"
+
+        android:contentDescription="@string/content_eight"
+        android:src="@drawable/eightnote"
+
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="000dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/sixteenth"
+        android:contentDescription="@string/content_sixteenth"
+        android:src="@drawable/sixteenthnote"
+
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="125dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
 </RelativeLayout>

@@ -36,7 +36,7 @@
     <string name="stave">Stave</string>
     <string name="stave_es">Pentagrama</string>
     <string name="lines">Lines to be displayed</string>
-    <string name="noteWhole">Whole</string>
+    <string name="save_action">Save icon</string>
 
 
 
@@ -45,5 +45,6 @@
     <string name="content_half">Half note</string>
     <string name="content_quarter">Quarter note</string>
     <string name="content_eight">Eight note</string>
+    <string name="content_sixteenth">Sixteenth note</string>
 
 </resources>
