@@ -1,14 +1,12 @@
 package com.aeg.xmlscore;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,14 +22,6 @@ import java.util.Iterator;
 
 public class Stage extends Fragment {
 
-    /*private ArrayList<Note> stageNotes;
-
-    /**
-     * Will take values of:
-     * -. 0                 When created.
-     * -. Measure>=N>0      Meanwhile.
-     * -. -1                Emptied.
-     */
     private ArrayList<Note> stageNotes;
 
     public Stage(){
@@ -52,10 +42,13 @@ public class Stage extends Fragment {
         View v = inflater.inflate(R.layout.fragment_stave, container, false);
 
 
-        ImageView iv = (ImageView)v.findViewById(R.id.am);
-        iv.setOnDragListener(new DragListener(this));
+        /**
+         * TODO Reformat this.
+         *
+         *
+         */
 
-        iv = (ImageView) v.findViewById(R.id.aM);
+        ImageView iv = (ImageView)v.findViewById(R.id.am);
         iv.setOnDragListener(new DragListener(this));
 
         iv = (ImageView) v.findViewById(R.id.aMb);
@@ -128,9 +121,13 @@ public class Stage extends Fragment {
         return r;
     }
 
+    public int getCount()  {
+        return this.stageNotes.size();
+    }
+
     public void addNote(Note pNote) {
 
-        if(this.totalWeight() + pNote.getWeight() <= 0) {
+        if(this.totalWeight() + pNote.getWeight() <= 100) {
             this.stageNotes.add(pNote);
         } else {
             Toast.makeText(getActivity(), "This note doesn't fit", Toast.LENGTH_SHORT).show();

@@ -17,10 +17,12 @@
         android:contentDescription="@string/content_whole"
         android:src="@drawable/wholenote"
 
+
         android:layout_marginTop="10dp"
         android:layout_marginLeft="0dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:adjustViewBounds="false" />
 
     <ImageView
         android:layout_width="100dp"

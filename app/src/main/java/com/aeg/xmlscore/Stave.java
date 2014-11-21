@@ -1,6 +1,5 @@
 package com.aeg.xmlscore;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -82,8 +81,6 @@ public class Stave extends FragmentActivity {
             case R.id.action_save:
                 openSave();
                 return true;
-            case R.id.action_lang:
-                Language.getLanguage().changeLanguage((String)item.getTitle());
             default:
                 return super.onOptionsItemSelected(item);
         }
