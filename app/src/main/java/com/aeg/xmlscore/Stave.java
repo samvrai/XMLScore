@@ -32,10 +32,11 @@ public class Stave extends FragmentActivity {
         }
 
 
-        int stageMax = extras.getString("MEASURE").charAt(0);
+        int stageMax = extras.getString("MEASURE").charAt(0) * extras.getString("MEASURE").charAt(2);
 
 
-        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager());
+        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
+
         this.vpager = (ViewPager) findViewById(R.id.lStave);
         this.vpager.setAdapter(pAdapter);
 
@@ -88,7 +89,7 @@ public class Stave extends FragmentActivity {
 
     public void addStage(View view) {
         pAdapter.addStage();
-        Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
     }
 
 }

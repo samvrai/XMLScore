@@ -21,8 +21,7 @@ public class DragListener implements View.OnDragListener {
 
     @Override
     public boolean onDrag(View v, DragEvent event) {
-        String name = null;
-        double weight = 0;
+
 
         switch (event.getAction()) {
 
@@ -42,18 +41,17 @@ public class DragListener implements View.OnDragListener {
 
             case DragEvent.ACTION_DROP:
 
-                name = this.droppedN(v);
-                weight = this.droppedW((ImageView) event.getLocalState());
-
-                ctx.addNote(new Note(name, weight));
-
-
+                String name = this.droppedN(v);
+                double weight = this.droppedW((ImageView) event.getLocalState());
                 ((ImageView) event.getLocalState()).setDrawingCacheEnabled(true);
+
+
 
                 ViewGroup newOwner = (ViewGroup)v.getParent();
 
 
                 ImageView iv = new ImageView(ctx.getActivity());
+                iv.setContentDescription(ctx.getString(R.string.added_notes));
                 iv.setImageBitmap(((ImageView) event.getLocalState()).getDrawingCache());
 
 
@@ -71,9 +69,13 @@ public class DragListener implements View.OnDragListener {
 
                 }
 
+
+
+                mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache(), iv.getY()));
+                mNoteManager.getNoteManager().reLocateStage(v.getWidth(), ctx.getPosition());
                 newOwner.addView(iv);
 
-                this.reassign((ViewGroup)v.getParent(), ctx.getCount() + 1);
+                ctx.loadViews((ViewGroup)ctx.getView());
 
                 if (v.getAlpha() == 0) {
                     v.setAlpha(1);
@@ -85,46 +87,24 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void reassign(ViewGroup vg, int hMany) {
-        int i = 20;
-        int actual = 0;
-        int step = vg.getWidth()/hMany;
-        boolean done = false;
-        while(!done) {
-            View view = vg.getChildAt(i);
-            if(view != null) {
-                Log.v("Here is ", String.valueOf(step));
-                actual += step;
-                view.setX(actual - 200);
-                i++;
-            } else {
-                done = true;
-
-            }
-        }
-
-
-    }
-
-
     private double droppedW(ImageView iv) {
         double weight = 0;
 
         switch (iv.getId()) {
             case R.id.whole:
-                weight = 1;
+                weight = 16;
                 break;
             case R.id.half:
-                weight = 0.5;
+                weight = 8;
                 break;
             case R.id.quarter:
-                weight = 0.25;
+                weight = 4;
                 break;
             case R.id.eight:
-                weight = 0.125;
+                weight = 2;
                 break;
             case R.id.sixteenth:
-                weight = 0.0625;
+                weight = 1;
                 break;
         }
 

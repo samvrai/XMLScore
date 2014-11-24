@@ -69,4 +69,7 @@
     <string name="line_b_mm">BM</string>
     <string name="line_cmmm">CMM</string>
 
+
+    <string name="added_notes">Note added</string>
+
 </resources>

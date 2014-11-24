@@ -1,5 +1,7 @@
 package com.aeg.xmlscore;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by nemo on 9/11/14.
  *
@@ -9,22 +11,30 @@ public class Note {
 
     private String name;
     private double weight;
-    private int flagB, flagS;
+    private int stage;
+    private Bitmap image;
+    private boolean flagB, flagS;
+    private float posX, posY;
 
-    public Note(String name, double weight) {
+    public Note(String name, double weight, int stage, Bitmap image, float posy) {
         this.name = name;
         this.weight = weight;
-        flagB = 0;
-        flagS = 0;
+        flagB = false;
+        flagS = false;
+        this.stage = stage;
+        this.image = image;
+        posY = posy;
     }
 
-    public void setFlagB(int flagB) {
+    public void setFlagB(boolean flagB) {
         this.flagB = flagB;
     }
 
-    public void setFlagS(int flagS) {
+    public void setFlagS(boolean flagS) {
         this.flagS = flagS;
     }
+
+    public void setPosX(float posx) { this.posX = posx;}
 
     public String getName() {
 
@@ -35,11 +45,27 @@ public class Note {
         return weight;
     }
 
-    public int getFlagB() {
+    public boolean getFlagB() {
         return flagB;
     }
 
-    public int getFlagS() {
+    public boolean getFlagS() {
         return flagS;
+    }
+
+    public float getPosx() {
+        return posX;
+    }
+
+    public float getPosy() {
+        return posY;
+    }
+
+    public int getStage() {
+        return stage;
+    }
+
+    public Bitmap getImage() {
+        return image;
     }
 }
