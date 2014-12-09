@@ -29,8 +29,8 @@ public class mTools {
         return mtools;
     }
 
-    public double droppedW(int id) {
-        double weight = 0;
+    public float droppedW(int id) {
+        float weight = 0;
 
         switch (id) {
             case R.id.whole:

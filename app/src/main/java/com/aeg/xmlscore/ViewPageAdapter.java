@@ -43,7 +43,7 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
         stg.setArguments(bundle);
         this.myStages.add(stg);
         this.notifyDataSetChanged();
-
+        //this.setPrimaryItem(, myStages.size(),);
     }
 
 

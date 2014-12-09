@@ -10,14 +10,14 @@ import android.graphics.Bitmap;
 public class Note {
 
     private String name;
-    private double weight;
+    private float weight;
     private int stage;
     private long id;
     private Bitmap image;
     private boolean flagB, flagS;
     private float posX, posY;
 
-    public Note(String name, double weight, int stage, Bitmap image, float posy) {
+    public Note(String name, float weight, int stage, Bitmap image, float posy) {
         this.name = name;
         this.weight = weight;
         flagB = false;
@@ -43,7 +43,7 @@ public class Note {
         return name;
     }
 
-    public double getWeight() {
+    public float getWeight() {
         return weight;
     }
 

@@ -37,6 +37,7 @@
     <string name="stave_es">Pentagrama</string>
     <string name="lines">Lines to be displayed</string>
     <string name="save_action">Save icon</string>
+    <string name="error_add">No room for this note</string>
 
 
 

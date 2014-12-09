@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
 
 
 public class Stave extends FragmentActivity {
@@ -31,8 +31,14 @@ public class Stave extends FragmentActivity {
             }
         }
 
+        int num = 0;
+        int den = 0;
+        if(extras != null) {
+            num = Character.getNumericValue(extras.getString("MEASURE").charAt(0));
+            den = Character.getNumericValue(extras.getString("MEASURE").charAt(2));
+        }
 
-        int stageMax = extras.getString("MEASURE").charAt(0) * extras.getString("MEASURE").charAt(2);
+        mMeasureCounter.getmMC().setArguments(num, den);
 
 
         this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
@@ -87,9 +93,10 @@ public class Stave extends FragmentActivity {
         }
     }
 
-    public void addStage(View view) {
+    public void addStage() {
         pAdapter.addStage();
         //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
+
     }
 
 }

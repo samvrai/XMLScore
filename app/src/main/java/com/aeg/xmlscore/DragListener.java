@@ -53,7 +53,7 @@ public class DragListener implements View.OnDragListener {
 
                 String name = mTools.getTools().droppedN(v.getId());
                 ImageView target = (ImageView) event.getLocalState();
-                double weight = mTools.getTools().droppedW(target.getId());
+                float weight = mTools.getTools().droppedW(target.getId());
                 ((ImageView) event.getLocalState()).setDrawingCacheEnabled(true);
 
 
@@ -79,32 +79,12 @@ public class DragListener implements View.OnDragListener {
                 //Toast.makeText(ctx.getActivity(), iv.getHeight() + " " + iv.getWidth(), Toast.LENGTH_SHORT).show();
 
                 //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
-                mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache(), v.getY()));
 
-                if(v.getY() <= 400) {
-                    iv.setRotationX(180);
-                    iv.setRotationY(180);
-
-
-                    iv.setY(v.getY() - 50);
+                if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
+                    this.doAdding(name, weight, v, iv, event, newOwner);
                 } else {
-
-                    iv.setY(v.getY() - 230);
-
+                    Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
-
-
-                /**
-                 * Store note and relocate all the notes in the current stave to fit them.
-                 * Reload the views.
-                 *
-                 * Ends returning lines to original state.
-                 */
-
-
-                newOwner.addView(iv);
-                mTools.getTools().relocate(this.ctx.getPosition(), newOwner);
-                //Toast.makeText(ctx.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
 
 
 
@@ -118,6 +98,40 @@ public class DragListener implements View.OnDragListener {
                 break;
         }
         return true;
+    }
+
+    private void doAdding(String name, float weight, View v, ImageView iv, DragEvent event, ViewGroup newOwner) {
+        mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache(), v.getY()));
+
+        if(v.getY() <= 400) {
+            iv.setRotationX(180);
+            iv.setRotationY(180);
+
+
+            iv.setY(v.getY() - 50);
+        } else {
+
+            iv.setY(v.getY() - 230);
+
+        }
+
+
+        /**
+         * Store note and relocate all the notes in the current stave to fit them.
+         * Reload the views.
+         *
+         * Ends returning lines to original state.
+         */
+
+
+        newOwner.addView(iv);
+        mTools.getTools().relocate(this.ctx.getPosition(), newOwner);
+        //Toast.makeText(ctx.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
+
+        if(mMeasureCounter.getmMC().getMax() == mNoteManager.getNoteManager().stageWeight(ctx.getPosition())) {
+            Stave ma = (Stave)ctx.getActivity();
+            ma.addStage();
+        }
     }
 
 }

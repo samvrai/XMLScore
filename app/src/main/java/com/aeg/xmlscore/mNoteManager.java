@@ -76,4 +76,17 @@ public class mNoteManager {
 
         return res;
     }
+
+    public float stageWeight(int stage) {
+        Iterator<Note> it = notesAtStage(stage).iterator();
+        float total = 0;
+
+        Note dummy = null;
+        while(it.hasNext()) {
+            dummy = it.next();
+            total += dummy.getWeight();
+        }
+
+        return total;
+    }
 }
