@@ -4,11 +4,12 @@ package com.aeg.xmlscore;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 
 
 import java.util.ArrayList;
@@ -41,22 +42,17 @@ public class Stage extends Fragment {
 
 
 
-        View v = inflater.inflate(R.layout.fragment_stave, container, false);
+        View v = inflater.inflate(R.layout.fragment_stave_2, container, false);
 
-        this.loadViews((ViewGroup)v);
+
+        mTools.getTools().loadViews(this, (ViewGroup)v.findViewById(R.id.notePlace));
+
 
         /**
          * TODO Reformat this.
          *
          *
          */
-
-        //ImageView iv;
-
-        /*for(int i = 0; i <= container.getChildCount(); i++) {
-            iv = (ImageView)container.getChildAt(i);
-            iv.setOnDragListener(new DragListener(this));
-        }*/
 
 
         ImageView iv = (ImageView) v.findViewById(R.id.am);
@@ -124,22 +120,5 @@ public class Stage extends Fragment {
 
     public int getPosition() {
         return position;
-    }
-
-    public void loadViews(ViewGroup v) {
-        int s = this.getPosition();
-        Toast.makeText(getActivity(), String.valueOf(mNoteManager.getNoteManager().notesAtStage(s).size()), Toast.LENGTH_SHORT).show();
-        ArrayList<Note> al = mNoteManager.getNoteManager().notesAtStage(getPosition());
-        Iterator<Note> it = al.iterator();
-        Note dummy = null;
-        while(it.hasNext()) {
-            dummy = it.next();
-            ImageView iv = new ImageView(this.getActivity());
-            iv.setImageBitmap(dummy.getImage());
-            iv.setX(dummy.getPosx());
-            iv.setY(dummy.getPosy());
-
-            v.addView(iv);
-        }
     }
 }

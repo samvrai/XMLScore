@@ -12,6 +12,7 @@ public class Note {
     private String name;
     private double weight;
     private int stage;
+    private long id;
     private Bitmap image;
     private boolean flagB, flagS;
     private float posX, posY;
@@ -24,6 +25,7 @@ public class Note {
         this.stage = stage;
         this.image = image;
         posY = posy;
+        id = mId.getmId().generateId();
     }
 
     public void setFlagB(boolean flagB) {
@@ -68,4 +70,6 @@ public class Note {
     public Bitmap getImage() {
         return image;
     }
+
+    public long getId() { return id;}
 }

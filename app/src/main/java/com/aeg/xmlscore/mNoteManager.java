@@ -1,6 +1,7 @@
 package com.aeg.xmlscore;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,20 +58,6 @@ public class mNoteManager {
         }
 
         return res;
-    }
-
-    public void reLocateStage(float width, int stage) {
-        ArrayList<Note> al = this.notesAtStage(stage);
-        float step = width/(al.size()+1);
-        float cumulate = 0;
-        Iterator<Note> it = al.iterator();
-        Note dummy;
-        while(it.hasNext()) {
-            cumulate += step;
-
-            dummy = it.next();
-            dummy.setPosX(cumulate);
-        }
     }
 
 

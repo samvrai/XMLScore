@@ -72,6 +72,7 @@ public class Start extends Activity {
         String pMeas = (String) sMeasure.getSelectedItem();
         intent.putExtra("CLEF", pClef);
         intent.putExtra("MEASURE", pMeas);
+        intent.putExtra("POSITION", 1);
 
 
         startActivity(intent);
