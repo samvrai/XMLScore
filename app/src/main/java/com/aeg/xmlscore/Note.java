@@ -15,16 +15,15 @@ public class Note {
     private long id;
     private Bitmap image;
     private boolean flagB, flagS;
-    private float posX, posY;
+    private float posX;
 
-    public Note(String name, float weight, int stage, Bitmap image, float posy) {
+    public Note(String name, float weight, int stage, Bitmap image) {
         this.name = name;
         this.weight = weight;
         flagB = false;
         flagS = false;
         this.stage = stage;
         this.image = image;
-        posY = posy;
         id = mId.getmId().generateId();
     }
 
@@ -59,9 +58,6 @@ public class Note {
         return posX;
     }
 
-    public float getPosy() {
-        return posY;
-    }
 
     public int getStage() {
         return stage;

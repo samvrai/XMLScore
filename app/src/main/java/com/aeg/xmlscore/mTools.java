@@ -141,14 +141,15 @@ public class mTools {
             ImageView iv = new ImageView(stage.getActivity());
             iv.setImageBitmap(dummy.getImage());
 
-            if(!dummy.getName().equals("bm") && dummy.getPosy() <= 190) {
+            float y = mNoteManager.getNoteManager().getNoteY(dummy.getName());
+            if(y > 450) {
                 iv.setRotationX(180);
                 iv.setRotationY(180);
 
                 //iv.setY(iv.getY() + 230);
             }
 
-            iv.setY(dummy.getPosy());
+            iv.setY(y);
             iv.setX(dummy.getPosx());
 
             //Toast.makeText(stage.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();

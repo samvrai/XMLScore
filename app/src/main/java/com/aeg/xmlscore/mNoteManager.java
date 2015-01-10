@@ -1,5 +1,7 @@
 package com.aeg.xmlscore;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +15,7 @@ public class mNoteManager {
 
     private static mNoteManager mNM = null;
     private ArrayList<Note> noteList;
+    private ArrayList<NotePos> notePoses = new ArrayList<NotePos>();
 
     private mNoteManager() {
         this.noteList = new ArrayList<Note>();
@@ -24,6 +27,10 @@ public class mNoteManager {
         }
 
         return mNM;
+    }
+
+    public void loadPos(NotePos np) {
+        this.notePoses.add(np);
     }
 
     public void addNote(Note pNote) {
@@ -88,5 +95,75 @@ public class mNoteManager {
         }
 
         return total;
+    }
+
+    private float search(String pNom) {
+        Iterator<NotePos> it = this.notePoses.iterator();
+        float result = 0;
+        boolean found = false;
+        NotePos np = null;
+        while(it.hasNext() && !found) {
+            np = it.next();
+            //Log.v("Flag",np.getName() + " " + this.notePoses.size() + " " + np.getPosition());
+            if(np.getName() == pNom) {
+                found = true;
+                result = np.getPosition();
+            }
+        }
+        return result;
+    }
+
+    public float getNoteY(String pNote) {
+        float result = 0;
+        Log.v("Flag", pNote);
+        switch(pNote) {
+            case "am":
+                result = this.search("am");
+                break;
+            case "aM":
+                result = this.search("aM");
+                break;
+            case "bM":
+                result = this.search("bM");
+                break;
+            case "bm":
+                result = this.search("bm");
+                break;
+            case "cm":
+                result = this.search("cm");
+                break;
+            case "cM":
+                result = this.search("cM");
+                break;
+            case "cMM":
+                result = this.search("cMM");
+                break;
+            case "dm":
+                result = this.search("dm");
+                break;
+            case "dM":
+                result = this.search("dM");
+                break;
+            case "eM":
+                result = this.search("eM");
+                break;
+            case "em":
+                result = this.search("em");
+                break;
+            case "fm":
+                result = this.search("fm");
+                break;
+            case "fM":
+                result = this.search("fM");
+                break;
+            case "gM":
+                result = this.search("gM");
+                break;
+            case "gm":
+                result = this.search("gm");
+
+                break;
+        }
+        return result;
     }
 }

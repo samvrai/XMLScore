@@ -69,6 +69,17 @@ public class DragListener implements View.OnDragListener {
                 iv.setContentDescription(ctx.getString(R.string.added_notes));
                 iv.setImageBitmap(((ImageView) event.getLocalState()).getDrawingCache());
 
+                float y = mNoteManager.getNoteManager().getNoteY(name);
+
+                Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
+
+                if(y > 450) {
+                    iv.setRotationX(180);
+                    iv.setRotationY(180);
+                }
+                iv.setY(y);
+
+
                 /**
                  * If the note position is lower or equal to 400 (Note A or higher. Screen measuring
                  * starts from (Upper, Left) corner) rotate image to set stem downwards.
@@ -81,7 +92,7 @@ public class DragListener implements View.OnDragListener {
                 //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
 
                 if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
-                    this.doAdding(name, weight, v, iv, event, newOwner);
+                    this.doAdding(name, weight, iv, event, newOwner);
                 } else {
                     Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
@@ -100,21 +111,8 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void doAdding(String name, float weight, View v, ImageView iv, DragEvent event, ViewGroup newOwner) {
-        mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache(), v.getY()));
-
-        if(v.getY() <= 400) {
-            iv.setRotationX(180);
-            iv.setRotationY(180);
-
-
-            iv.setY(v.getY() - 50);
-        } else {
-
-            iv.setY(v.getY() - 230);
-
-        }
-
+    private void doAdding(String name, float weight, ImageView iv, DragEvent event, ViewGroup newOwner) {
+        mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache()));
 
         /**
          * Store note and relocate all the notes in the current stave to fit them.
