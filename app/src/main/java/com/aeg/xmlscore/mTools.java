@@ -142,11 +142,12 @@ public class mTools {
             iv.setImageBitmap(dummy.getImage());
 
             float y = mNoteManager.getNoteManager().getNoteY(dummy.getName());
-            if(y > 450) {
+            if(y < 450) {
                 iv.setRotationX(180);
                 iv.setRotationY(180);
-
-                //iv.setY(iv.getY() + 230);
+                y -= 50;
+            } else {
+                y -= 230;
             }
 
             iv.setY(y);

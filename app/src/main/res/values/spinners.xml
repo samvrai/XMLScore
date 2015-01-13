@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerC">
-        <item>G</item>
-        <item>F</item>
-        <item>E</item>
+    <string-array name="spinnerK">
+        <item>Sharp key C major</item>
+        <item>Sharp key G major</item>
+        <item>Sharp key D major</item>
+        <item>Sharp key A major</item>
+        <item>Sharp key E major</item>
+        <item>Sharp key B major</item>
+        <item>Sharp key F# major</item>
+        <item>Sharp key C# major</item>
+        <item>Flat key C major</item>
+        <item>Flat key F major</item>
+        <item>Flat key Bb major</item>
+        <item>Flat key Eb major</item>
+        <item>Flat key Ab major</item>
+        <item>Flat key Db major</item>
+        <item>Flat key Gb major</item>
+        <item>Flat key Cb major</item>
     </string-array>
     <string-array name="spinnerM">
         <item>2/4</item>

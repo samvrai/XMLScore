@@ -1,6 +1,6 @@
 package com.aeg.xmlscore;
 
-import android.content.Context;
+
 import android.os.Environment;
 
 import java.io.BufferedWriter;
@@ -56,6 +56,33 @@ public class Writer {
             /**
              * TODO Aqui toca meter la fiesta!.
              */
+            bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+            bw.newLine();
+            bw.write("<!DOCTYPE score-partwise PUBLIC");
+            bw.newLine();
+            bw.write("\t\"-//Recordare//DTD MusicXML 3.0 Partwise//EN\"");
+            bw.newLine();
+            bw.write("\t\"http://www.musicxml.org/dtds/partwise.dtd\">");
+            bw.newLine();
+            bw.write("<score-partwise version=\"3.0\">");
+            bw.newLine();
+            bw.write("<part-list>");
+            bw.newLine();
+            bw.write("\t<score-part id=\"P1\">");
+            bw.newLine();
+            bw.write("\t<part-name>Music</part-name>");
+            bw.newLine();
+            bw.write("\t</score-part>\n");
+            bw.newLine();
+            bw.write("</part-list>");
+            bw.newLine();
+            bw.write("<part id=\"P1\">");
+            
+            bw.write("</part>");
+            bw.newLine();
+            bw.write("</score-partwise>");
+
+
         } catch(IOException e) {
             e.printStackTrace();
         }

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,10 +20,10 @@ public class Start extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Spinner sClef = (Spinner) findViewById(R.id.spinnerClef);
+        Spinner sClef = (Spinner) findViewById(R.id.spinnerKey);
         Spinner sMeasure = (Spinner) findViewById(R.id.spinnerMeasure);
 
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.spinnerC, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.spinnerK, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -33,6 +34,9 @@ public class Start extends Activity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sMeasure.setAdapter(adapter2);
+
+        RadioButton rbMaj = (RadioButton)findViewById(R.id.major);
+        RadioButton rbMin = (RadioButton)findViewById(R.id.minor);
     }
 
 
@@ -66,10 +70,23 @@ public class Start extends Activity {
     public void newStave(View view) {
 
         Intent intent = new Intent(this, Stave.class);
-        Spinner sClef = (Spinner) findViewById(R.id.spinnerClef);
+        Spinner sKey = (Spinner) findViewById(R.id.spinnerKey);
         Spinner sMeasure = (Spinner) findViewById(R.id.spinnerMeasure);
-        String pClef = (String) sClef.getSelectedItem();
+        String pClef = (String) sKey.getSelectedItem();
         String pMeas = (String) sMeasure.getSelectedItem();
+        int check = -1;
+        for(int i = 0; i < pMeas.length(); i++) {
+            if(pMeas.charAt(i) == '/') {
+
+                String tgt = pMeas.substring(0,i);
+                intent.putExtra("NUM" , Integer.valueOf(tgt));
+                check = i;
+            } else if(i == pMeas.length() - 1) {
+                String tgt = pMeas.substring(check + 1);
+                intent.putExtra("DEN" , Integer.valueOf(tgt));
+            }
+        }
+
         intent.putExtra("CLEF", pClef);
         intent.putExtra("MEASURE", pMeas);
         intent.putExtra("POSITION", 1);
@@ -95,10 +112,27 @@ public class Start extends Activity {
             btn.setText(getText(R.string.button_main));
 
             TextView tvw = (TextView) findViewById(R.id.textClef);
-            tvw.setText(getText(R.string.select_text_main_clef));
+            tvw.setText(getText(R.string.select_text_main_key));
 
             tvw = (TextView) findViewById(R.id.textMeasure);
             tvw.setText(getText(R.string.select_text_main_measure));
+        }
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.major:
+                if (checked)
+                    // Major selected
+                    break;
+            case R.id.minor:
+                if (checked)
+                    // Minor selected
+                    break;
         }
     }
 

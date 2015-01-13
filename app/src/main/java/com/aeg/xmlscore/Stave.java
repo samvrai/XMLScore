@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,15 +28,16 @@ public class Stave extends FragmentActivity {
             String sClef = extras.getString("CLEF");
             String sMeas = extras.getString("MEASURE");
             if(sClef != null && sMeas != null) {
-                setTitle("Clef " + sClef + ", measure " + sMeas);
+                setTitle("Key is " + sClef + ", measure is " + sMeas);
             }
         }
 
         int num = 0;
         int den = 0;
         if(extras != null) {
-            num = Character.getNumericValue(extras.getString("MEASURE").charAt(0));
-            den = Character.getNumericValue(extras.getString("MEASURE").charAt(2));
+
+            num = extras.getInt("NUM");
+            den = extras.getInt("DEN");
         }
 
         mMeasureCounter.getmMC().setArguments(num, den);
@@ -93,10 +95,15 @@ public class Stave extends FragmentActivity {
         }
     }
 
-    public void addStage() {
+    public void addStage(View v) {
         pAdapter.addStage();
         //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
 }

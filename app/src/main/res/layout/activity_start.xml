@@ -21,12 +21,43 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/select_text_main_clef"
+        android:text="@string/select_text_main_key"
         android:id="@+id/textClef"
-        android:layout_above="@+id/spinnerClef"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="80dp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerKey"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/major"
+            android:id="@+id/major"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minor"
+            android:id="@+id/minor"
+            />
+
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,36 +65,23 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/select_text_main_measure"
         android:id="@+id/textMeasure"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textMeasure"
-        android:layout_alignStart="@+id/textClef" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerClef"
-        android:layout_above="@+id/textMeasure"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="49dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="290dp" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerMeasure"
-        android:layout_below="@+id/textMeasure"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="80dp"
         android:text="@string/button_main"
         android:id="@+id/bNewStave"
         android:onClick="newStave"
-        android:layout_marginBottom="57dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/title"
-        android:layout_alignEnd="@+id/title" />
+        android:layout_marginTop="400dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

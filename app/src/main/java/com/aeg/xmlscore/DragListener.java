@@ -1,6 +1,6 @@
 package com.aeg.xmlscore;
 
-import android.util.Log;
+
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +57,7 @@ public class DragListener implements View.OnDragListener {
                 ((ImageView) event.getLocalState()).setDrawingCacheEnabled(true);
 
 
+
                 /**
                  * Get the View instance that will contain the note.
                  *
@@ -71,11 +72,14 @@ public class DragListener implements View.OnDragListener {
 
                 float y = mNoteManager.getNoteManager().getNoteY(name);
 
-                Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx.getActivity(), String.valueOf(y), Toast.LENGTH_SHORT).show();
 
-                if(y > 450) {
+                if(y < 450) {
                     iv.setRotationX(180);
                     iv.setRotationY(180);
+                    y -= 50;
+                } else {
+                    y -= 230;
                 }
                 iv.setY(y);
 
@@ -128,7 +132,7 @@ public class DragListener implements View.OnDragListener {
 
         if(mMeasureCounter.getmMC().getMax() == mNoteManager.getNoteManager().stageWeight(ctx.getPosition())) {
             Stave ma = (Stave)ctx.getActivity();
-            ma.addStage();
+            ma.addStage(null);
         }
     }
 
