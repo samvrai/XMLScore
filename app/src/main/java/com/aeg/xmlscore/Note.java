@@ -11,15 +11,18 @@ public class Note {
 
     private String name;
     private float weight;
+    private float nWeight;
+
     private int stage;
-    private long id;
+    private int id;
     private Bitmap image;
-    private boolean flagB, flagS;
+    private boolean flagB, flagS, flagN, flagD;
     private float posX;
 
     public Note(String name, float weight, int stage, Bitmap image) {
         this.name = name;
         this.weight = weight;
+        this.nWeight = weight;
         flagB = false;
         flagS = false;
         this.stage = stage;
@@ -35,6 +38,28 @@ public class Note {
         this.flagS = flagS;
     }
 
+    public boolean isFlagN() {
+        return flagN;
+    }
+
+    public boolean isFlagD() {
+        return flagD;
+    }
+
+    public void setFlagD(boolean flagD) {
+        this.flagD = flagD;
+        if(flagD) {
+            this.weight += this.weight/2;
+        } else {
+            this.weight = this.nWeight;
+
+        }
+    }
+
+    public void setFlagN(boolean flagN) {
+        this.flagN = flagN;
+    }
+
     public void setPosX(float posx) { this.posX = posx;}
 
     public String getName() {
@@ -44,14 +69,6 @@ public class Note {
 
     public float getWeight() {
         return weight;
-    }
-
-    public boolean getFlagB() {
-        return flagB;
-    }
-
-    public boolean getFlagS() {
-        return flagS;
     }
 
     public float getPosx() {
@@ -67,5 +84,5 @@ public class Note {
         return image;
     }
 
-    public long getId() { return id;}
+    public int getId() { return id;}
 }

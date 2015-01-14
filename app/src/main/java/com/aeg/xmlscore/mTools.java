@@ -152,9 +152,9 @@ public class mTools {
 
             iv.setY(y);
             iv.setX(dummy.getPosx());
-
+            iv.setId(dummy.getId());
             //Toast.makeText(stage.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
-
+            iv.setOnClickListener(new ClickListener(vg.getContext()));
 
 
             vg.addView(iv);

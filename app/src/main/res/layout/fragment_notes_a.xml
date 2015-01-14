@@ -10,17 +10,55 @@
     android:background="#F0CC">
 
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dotted"
+        android:id="@+id/dotted"
+        android:layout_marginTop="40dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="130dp"
+        android:id="@+id/rGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+            android:id="@+id/normal"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flat"
+            android:id="@+id/flat" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sharp"
+            android:id="@+id/sharp" />
+    </RadioGroup>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Natural"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="250dp"
+        android:id="@+id/natural" />
+
     <Button
-        android:background="#FFFFFF"
         android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="ADD"
-        android:id="@+id/button"
-        android:layout_marginBottom="37dp"
-        android:onClick="addStage"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp" />
+        android:layout_height="60dp"
+        android:text="Done"
+        android:id="@+id/bDone"
+        android:onClick="saveState"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+         />
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.aeg.xmlscore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -15,9 +16,9 @@ public class NotesAdapter extends FragmentStatePagerAdapter {
 
     public NotesAdapter(FragmentManager fm) {
         super(fm);
-        notePages.add(new NoteDrawerA());
-        NoteDrawerB ndb = new NoteDrawerB();
-        notePages.add(ndb);
+        notePages.add(new NoteDrawerB());
+        NoteDrawerA nda = new NoteDrawerA();
+        notePages.add(nda);
         //TODO Add the other drawer.
 
 

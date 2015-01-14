@@ -1,6 +1,7 @@
 package com.aeg.xmlscore;
 
 
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,12 +68,13 @@ public class DragListener implements View.OnDragListener {
 
 
                 ImageView iv = new ImageView(ctx.getActivity());
+                iv.setOnClickListener(new ClickListener(ctx.getActivity()));
                 iv.setContentDescription(ctx.getString(R.string.added_notes));
                 iv.setImageBitmap(((ImageView) event.getLocalState()).getDrawingCache());
 
                 float y = mNoteManager.getNoteManager().getNoteY(name);
 
-                Toast.makeText(ctx.getActivity(), String.valueOf(y), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ctx.getActivity(), String.valueOf(y), Toast.LENGTH_SHORT).show();
 
                 if(y < 450) {
                     iv.setRotationX(180);
@@ -101,22 +103,18 @@ public class DragListener implements View.OnDragListener {
                     Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
 
-
-
-
-
                 if (v.getAlpha() == 0) {
                     v.setAlpha(1);
                 }
                 v.setAlpha(0);
-
-                break;
         }
         return true;
     }
 
     private void doAdding(String name, float weight, ImageView iv, DragEvent event, ViewGroup newOwner) {
-        mNoteManager.getNoteManager().addNote(new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache()));
+        Note note = new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache());
+        iv.setId(note.getId());
+        mNoteManager.getNoteManager().addNote(note);
 
         /**
          * Store note and relocate all the notes in the current stave to fit them.

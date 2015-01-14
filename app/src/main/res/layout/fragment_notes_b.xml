@@ -32,6 +32,8 @@
         android:contentDescription="@string/content_half"
         android:src="@drawable/halfnote"
 
+
+
         android:layout_marginTop="10dp"
         android:layout_marginLeft="125dp"
         android:longClickable="true"

@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="@string/major"
             android:id="@+id/major"
-            />
+            android:checked="true" />
 
         <RadioButton
             android:layout_width="wrap_content"

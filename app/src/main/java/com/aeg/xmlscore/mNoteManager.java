@@ -16,6 +16,7 @@ public class mNoteManager {
     private static mNoteManager mNM = null;
     private ArrayList<Note> noteList;
     private ArrayList<NotePos> notePoses = new ArrayList<NotePos>();
+    private Note inTransaction;
 
     private mNoteManager() {
         this.noteList = new ArrayList<Note>();
@@ -166,4 +167,20 @@ public class mNoteManager {
         }
         return result;
     }
+
+    public Note getNoteById(int id) {
+        Note note = null;
+        Iterator<Note> it = noteList.iterator();
+        boolean found = false;
+        while(it.hasNext() && !found) {
+            note = it.next();
+            if(note.getId() == id) {
+                found = true;
+            }
+        }
+        inTransaction = note;
+        return note;
+    }
+
+    public Note getInTransaction() {return this.inTransaction;}
 }

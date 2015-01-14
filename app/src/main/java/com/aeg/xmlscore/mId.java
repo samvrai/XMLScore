@@ -6,7 +6,7 @@ package com.aeg.xmlscore;
 public class mId {
 
     private static mId mId;
-    private long id;
+    private int id;
 
     private mId() {
         this.id = 0;
@@ -20,7 +20,7 @@ public class mId {
         return mId;
     }
 
-    public long generateId() {
+    public int generateId() {
         return ++id;
     }
 

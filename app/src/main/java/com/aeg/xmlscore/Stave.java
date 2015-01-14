@@ -8,14 +8,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 
 public class Stave extends FragmentActivity {
-
-    private ViewPageAdapter pAdapter;
-    private NotesAdapter nAdapter;
-    private ViewPager vpager, notesPager;
 
 
     @Override
@@ -40,19 +39,22 @@ public class Stave extends FragmentActivity {
             den = extras.getInt("DEN");
         }
 
+        ViewPageAdapter pAdapter;
+        NotesAdapter nAdapter;
+        ViewPager vpager, notesPager;
+
         mMeasureCounter.getmMC().setArguments(num, den);
+        pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
+
+        vpager = (ViewPager) findViewById(R.id.lStave);
+        vpager.setAdapter(pAdapter);
 
 
-        this.pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
+        nAdapter = new NotesAdapter(getSupportFragmentManager());
+        notesPager = (ViewPager) findViewById(R.id.lNotes);
+        notesPager.setAdapter(nAdapter);
 
-        this.vpager = (ViewPager) findViewById(R.id.lStave);
-        this.vpager.setAdapter(pAdapter);
-
-
-        this.nAdapter = new NotesAdapter(getSupportFragmentManager());
-        this.notesPager = (ViewPager) findViewById(R.id.lNotes);
-        this.notesPager.setAdapter(nAdapter);
-
+        AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager, this);
     }
 
 
@@ -96,7 +98,8 @@ public class Stave extends FragmentActivity {
     }
 
     public void addStage(View v) {
-        pAdapter.addStage();
+        AdapterManager.getMaM().getpAdapter().addStage();
+        AdapterManager.getMaM().getVpager().setCurrentItem(AdapterManager.getMaM().getpAdapter().getCount() - 1);
         //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
 
     }
@@ -104,6 +107,38 @@ public class Stave extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        finish();
+
+        /**
+         * TODO Guardar fichero notas y destruir
+         */
+
+    }
+
+    public void saveState(View v) {
+        CheckBox cDotted = (CheckBox)findViewById(R.id.dotted);
+        CheckBox cNatural = (CheckBox)findViewById(R.id.natural);
+        Note note = mNoteManager.getNoteManager().getInTransaction();
+
+        if(cDotted.isChecked() && !note.isFlagD()) {
+            Toast.makeText(this, String.valueOf(note.getWeight()) + " " + String.valueOf(mNoteManager.getNoteManager().stageWeight(note.getStage())), Toast.LENGTH_SHORT).show();
+            if(mNoteManager.getNoteManager().stageWeight(note.getStage()) <= mNoteManager.getNoteManager().stageWeight(note.getStage()) + (note.getWeight()/2)) {
+                note.setFlagD(true);
+            } else {
+                Toast.makeText(this, "No room for this note", Toast.LENGTH_SHORT).show();
+            }
+        } else if(!cDotted.isChecked() && note.isFlagD()) {
+            note.setFlagD(false);
+        }
+        if(cNatural.isChecked() && !note.isFlagN()) {
+            note.setFlagN(true);
+        } else if(!cNatural.isChecked() && note.isFlagN()) {
+            note.setFlagN(false);
+        }
+
+        ViewGroup vg = (ViewGroup)findViewById(R.id.notePlace);
+        for(int i = 0; i < vg.getChildCount(); i++) {
+            vg.getChildAt(i).setBackground(null);
+        }
+        AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
     }
 }
