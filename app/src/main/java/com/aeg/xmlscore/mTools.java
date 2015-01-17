@@ -108,22 +108,13 @@ public class mTools {
     }
 
     public void relocate(int stage, ViewGroup vg) {
-        ArrayList<Note> al = mNoteManager.getNoteManager().notesAtStage(stage);
 
-        float step = MEASURE / (al.size() + 1);
+        float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
         float accumulate = 0;
 
-        Iterator<Note> it = al.iterator();
-        Note dummy;
-        int i = 0;
-
-        while(it.hasNext()) {
+        for (int i = 0; i < vg.getChildCount(); i++){
             accumulate += step;
-            dummy = it.next();
-            dummy.setPosX(accumulate -150);
-
             vg.getChildAt(i).setX(accumulate -150);
-            i++;
         }
 
     }
@@ -151,13 +142,12 @@ public class mTools {
             }
 
             iv.setY(y);
-            iv.setX(dummy.getPosx());
             iv.setId(dummy.getId());
             //Toast.makeText(stage.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
             iv.setOnClickListener(new ClickListener(vg.getContext()));
-
-
             vg.addView(iv);
         }
+
+        this.relocate(stage.getPosition(), vg);
     }
 }

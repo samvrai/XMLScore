@@ -38,6 +38,8 @@ public class mNoteManager {
         this.noteList.add(pNote);
     }
 
+    public void addNote(Note pNote, int index) { this.noteList.add(index, pNote);}
+
     public ArrayList<Note> notesAtStage(int stage) {
         ArrayList<Note> result = new ArrayList<Note>();
         Iterator<Note> it = this.noteList.iterator();
@@ -69,7 +71,7 @@ public class mNoteManager {
     }
 
 
-    private int howManyStages() {
+    public int howManyStages() {
         int res = 0;
         int actual = 0;
         Iterator<Note> it = this.noteList.iterator();
@@ -183,4 +185,12 @@ public class mNoteManager {
     }
 
     public Note getInTransaction() {return this.inTransaction;}
+
+    public int size() {return this.noteList.size();}
+
+    public Note getNote(int i){
+        return this.noteList.get(i);
+    }
+
+    public void removeNote() { this.noteList.remove(this.inTransaction);}
 }

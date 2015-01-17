@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
+import java.io.Serializable;
+
 
 public class Stave extends FragmentActivity {
 
@@ -108,6 +112,18 @@ public class Stave extends FragmentActivity {
     protected void onDestroy() {
         super.onDestroy();
 
+        /*for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
+            JSONObject json = new JSONObject();
+            Note note = mNoteManager.getNoteManager().getNote(i);
+            json.
+        }*/
+
+        JSONObject json = new JSONObject();
+        for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
+            //json.accumulate("Notes", mNoteManager.getNoteManager().getNote(i));
+        }
+
+
         /**
          * TODO Guardar fichero notas y destruir
          */
@@ -140,5 +156,15 @@ public class Stave extends FragmentActivity {
             vg.getChildAt(i).setBackground(null);
         }
         AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
+    }
+
+    public void removeNote(View v) {
+        ViewGroup vg = (ViewGroup)findViewById(R.id.notePlace);
+        for(int i = 0; i < vg.getChildCount(); i++) {
+            if(vg.getChildAt(i).getId() == mNoteManager.getNoteManager().getInTransaction().getId()) {
+                vg.removeViewAt(i);
+            }
+        }
+        mNoteManager.getNoteManager().removeNote();
     }
 }

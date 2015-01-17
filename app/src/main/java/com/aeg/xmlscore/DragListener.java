@@ -85,7 +85,6 @@ public class DragListener implements View.OnDragListener {
                 }
                 iv.setY(y);
 
-
                 /**
                  * If the note position is lower or equal to 400 (Note A or higher. Screen measuring
                  * starts from (Upper, Left) corner) rotate image to set stem downwards.
@@ -98,7 +97,7 @@ public class DragListener implements View.OnDragListener {
                 //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
 
                 if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
-                    this.doAdding(name, weight, iv, event, newOwner);
+                    this.doAdding(name, weight, iv, event, newOwner, v.getX());
                 } else {
                     Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
@@ -111,11 +110,23 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void doAdding(String name, float weight, ImageView iv, DragEvent event, ViewGroup newOwner) {
+    private void doAdding(String name, float weight, ImageView iv, DragEvent event, ViewGroup newOwner, float pos) {
         Note note = new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache());
         iv.setId(note.getId());
-        mNoteManager.getNoteManager().addNote(note);
 
+        boolean added = false;
+        for(int i = 0; i < newOwner.getChildCount(); i++) {
+            if(pos < newOwner.getChildAt(i).getX()) {
+                mNoteManager.getNoteManager().addNote(note, i);
+                added = true;
+                ((ViewGroup)iv.getParent()).removeView(iv);
+                newOwner.addView(iv, i);
+            }
+        }
+        if(!added) {
+            mNoteManager.getNoteManager().addNote(note);
+            newOwner.addView(iv);
+        }
         /**
          * Store note and relocate all the notes in the current stave to fit them.
          * Reload the views.
@@ -123,8 +134,6 @@ public class DragListener implements View.OnDragListener {
          * Ends returning lines to original state.
          */
 
-
-        newOwner.addView(iv);
         mTools.getTools().relocate(this.ctx.getPosition(), newOwner);
         //Toast.makeText(ctx.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
 

@@ -76,9 +76,11 @@ public class Writer {
             bw.newLine();
             bw.write("</part-list>");
             bw.newLine();
-            bw.write("<part id=\"P1\">");
-            
-            bw.write("</part>");
+            for(int i = 0; i < mNoteManager.getNoteManager().howManyStages(); i++) {
+                bw.write("<part id=\"P" + i + "\">");
+
+                bw.write("</part>");
+            }
             bw.newLine();
             bw.write("</score-partwise>");
 

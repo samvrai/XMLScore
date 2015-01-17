@@ -17,7 +17,7 @@ public class Note {
     private int id;
     private Bitmap image;
     private boolean flagB, flagS, flagN, flagD;
-    private float posX;
+
 
     public Note(String name, float weight, int stage, Bitmap image) {
         this.name = name;
@@ -60,8 +60,6 @@ public class Note {
         this.flagN = flagN;
     }
 
-    public void setPosX(float posx) { this.posX = posx;}
-
     public String getName() {
 
         return name;
@@ -69,10 +67,6 @@ public class Note {
 
     public float getWeight() {
         return weight;
-    }
-
-    public float getPosx() {
-        return posX;
     }
 
 
