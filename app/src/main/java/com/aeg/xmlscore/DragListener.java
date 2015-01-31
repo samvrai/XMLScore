@@ -64,10 +64,10 @@ public class DragListener implements View.OnDragListener {
                  *
                  * Create a new image and set variables, including bitmap.
                  */
-                ViewGroup newOwner = (ViewGroup) ctx.getActivity().findViewById(R.id.notePlace);
+                ViewGroup newOwner = ctx.getNotePlace();
 
 
-                ImageView iv = new ImageView(ctx.getActivity());
+                /*ImageView iv = new ImageView(ctx.getActivity());
                 iv.setOnClickListener(new ClickListener(ctx.getActivity()));
                 iv.setContentDescription(ctx.getString(R.string.added_notes));
                 iv.setImageBitmap(((ImageView) event.getLocalState()).getDrawingCache());
@@ -83,7 +83,7 @@ public class DragListener implements View.OnDragListener {
                 } else {
                     y -= 230;
                 }
-                iv.setY(y);
+                iv.setY(y);*/
 
                 /**
                  * If the note position is lower or equal to 400 (Note A or higher. Screen measuring
@@ -97,7 +97,7 @@ public class DragListener implements View.OnDragListener {
                 //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
 
                 if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
-                    this.doAdding(name, weight, iv, event, newOwner, v.getX());
+                    this.doAdding(name, weight, event, newOwner);
                 } else {
                     Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
@@ -110,22 +110,18 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void doAdding(String name, float weight, ImageView iv, DragEvent event, ViewGroup newOwner, float pos) {
+    private void doAdding(String name, float weight, DragEvent event, ViewGroup newOwner) {
         Note note = new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache());
-        iv.setId(note.getId());
 
         boolean added = false;
-        for(int i = 0; i < newOwner.getChildCount(); i++) {
-            if(pos < newOwner.getChildAt(i).getX()) {
+        for(int i = 0; i < newOwner.getChildCount() && !added; i++) {
+            if(event.getX() < newOwner.getChildAt(i).getX()) {
                 mNoteManager.getNoteManager().addNote(note, i);
                 added = true;
-                ((ViewGroup)iv.getParent()).removeView(iv);
-                newOwner.addView(iv, i);
             }
         }
         if(!added) {
             mNoteManager.getNoteManager().addNote(note);
-            newOwner.addView(iv);
         }
         /**
          * Store note and relocate all the notes in the current stave to fit them.
@@ -133,6 +129,8 @@ public class DragListener implements View.OnDragListener {
          *
          * Ends returning lines to original state.
          */
+
+        AdapterManager.getMaM().updateTexts();
 
         mTools.getTools().relocate(this.ctx.getPosition(), newOwner);
         //Toast.makeText(ctx.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();

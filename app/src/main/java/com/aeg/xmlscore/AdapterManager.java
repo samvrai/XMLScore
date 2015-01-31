@@ -49,4 +49,10 @@ public class AdapterManager {
     public ViewPager getNotesPager() {
         return notesPager;
     }
+
+    public void updateTexts() {
+        for(int i = 0; i < pAdapter.getCount(); i++) {
+            ((Stage) pAdapter.getItem(i)).updateText();
+        }
+    }
 }

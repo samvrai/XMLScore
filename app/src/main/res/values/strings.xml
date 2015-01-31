@@ -6,7 +6,7 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Load Stave</string>
     <string name="title_activity_start">Start</string>
     <string name="select_text_main_key">Select the desired key</string>
     <string name="select_text_main_measure">Select the desired measure</string>
@@ -40,16 +40,11 @@
     <string name="error_add">No room for this note</string>
     <string name="major">Major Key</string>
     <string name="minor">Minor Key</string>
-
-
-
-
     <string name="content_whole">Whole note</string>
     <string name="content_half">Half note</string>
     <string name="content_quarter">Quarter note</string>
     <string name="content_eight">Eight note</string>
     <string name="content_sixteenth">Sixteenth note</string>
-
     <string name="line_cm">Cm</string>
     <string name="line_dm">Dm</string>
     <string name="line_em">Em</string>
@@ -71,8 +66,7 @@
     <string name="line_a_mmb">AMB</string>
     <string name="line_b_mm">BM</string>
     <string name="line_cmmm">CMM</string>
-
-
     <string name="added_notes">Note added</string>
+    <string name="title_activity_load">Load stave</string>
 
 </resources>

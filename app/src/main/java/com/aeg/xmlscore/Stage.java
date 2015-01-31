@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -31,6 +32,8 @@ public class Stage extends Fragment {
 
 
     private int position;
+    private ViewGroup vg;
+    private TextView indexPos;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,11 +46,11 @@ public class Stage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-
         View v = inflater.inflate(R.layout.fragment_stave_2, container, false);
 
         mTools.getTools().loadViews(this, (ViewGroup)v.findViewById(R.id.notePlace));
 
+        indexPos = (TextView) v.findViewById(R.id.measurePosition);
 
         /**
          * TODO Reformat this.
@@ -153,10 +156,23 @@ public class Stage extends Fragment {
         iv.setOnDragListener(new DragListener(this));
         //mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
 
+        vg = (ViewGroup) v.findViewById(R.id.notePlace);
+        updateText();
+
+
         return v;
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public ViewGroup getNotePlace() {
+        return vg;
+    }
+
+    public void updateText() {
+        String str = position + "/" + mNoteManager.getNoteManager().howManyStages();
+        indexPos.setText(str);
     }
 }

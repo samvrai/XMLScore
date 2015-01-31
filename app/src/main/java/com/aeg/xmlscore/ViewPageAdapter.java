@@ -46,6 +46,10 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
         //this.setPrimaryItem(, myStages.size(),);
     }
 
+    public void remove() {
+        this.myStages.remove(myStages.size() - 1);
+    }
+
 
 
 }

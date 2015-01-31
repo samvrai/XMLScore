@@ -1,10 +1,14 @@
 package com.aeg.xmlscore;
 
 
+import android.content.Context;
 import android.os.Environment;
+
+import org.json.JSONArray;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -14,8 +18,19 @@ import java.io.IOException;
  */
 public class Writer {
     private static Writer mWriter;
+    private Context ctx;
+    private String name;
+
 
     private Writer() {}
+
+    public void setContext(Context pCtx) {
+        this.ctx = pCtx;
+    }
+
+    public void setName(String pName) {
+        this.name = pName;
+    }
 
     public static Writer getmWriter() {
         if (mWriter == null) {
@@ -25,7 +40,7 @@ public class Writer {
         return mWriter;
     }
 
-    public void export(String name) {
+    public void export() {
         if(this.isExternalStorageWritable()) {
             File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
             File dir;
@@ -34,7 +49,7 @@ public class Writer {
                 docDir = dir;
             }
 
-            File project = new File(docDir, "ScoreXML_" + name + ".mxl");
+            File project = new File(docDir, name + ".mxl");
             this.writeMusic(project);
         }
     }
@@ -88,6 +103,21 @@ public class Writer {
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveJson(JSONArray json) {
+        FileOutputStream fos;
+        try {
+            fos = ctx.openFileOutput(this.name, Context.MODE_PRIVATE);
+            fos.write(json.toString().getBytes());
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void populate() {
+
     }
 
 }

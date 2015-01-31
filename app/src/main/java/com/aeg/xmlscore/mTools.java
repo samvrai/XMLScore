@@ -109,12 +109,32 @@ public class mTools {
 
     public void relocate(int stage, ViewGroup vg) {
 
+        Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
+
         float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
         float accumulate = 0;
 
-        for (int i = 0; i < vg.getChildCount(); i++){
+        vg.removeAllViews();
+
+        while(it.hasNext()) {
+            Note note = it.next();
+            ImageView iv = new ImageView(vg.getContext());
+            iv.setId(note.getId());
+            iv.setImageBitmap(note.getImage());
+            iv.setOnClickListener(new ClickListener(vg.getContext()));
+            iv.setContentDescription(vg.getContext().getString(R.string.added_notes));
             accumulate += step;
-            vg.getChildAt(i).setX(accumulate -150);
+            iv.setX(accumulate -150);
+            float y = mNoteManager.getNoteManager().getNoteY(note.getName());
+            if(y < 450) {
+                iv.setRotationX(180);
+                iv.setRotationY(180);
+                y -= 50;
+            } else {
+                y -= 230;
+            }
+            iv.setY(y);
+            vg.addView(iv);
         }
 
     }

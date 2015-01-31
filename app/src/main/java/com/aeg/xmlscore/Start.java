@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -26,44 +27,38 @@ public class Start extends Activity {
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.spinnerK, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         // Apply the adapter to the spinner
         sClef.setAdapter(adapter1);
+        sClef.setSelection(7);
 
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.spinnerM, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sMeasure.setAdapter(adapter2);
-
-        RadioButton rbMaj = (RadioButton)findViewById(R.id.major);
-        RadioButton rbMin = (RadioButton)findViewById(R.id.minor);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
-    private void openSettings() {
-        Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            openSettings();
-            return true;
-        } else {
+        if(item.getItemId() == R.id.load) {
 
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -95,46 +90,5 @@ public class Start extends Activity {
         startActivity(intent);
 
     }
-
-    public void swapLang(String lng) {
-
-        if(lng == "ES") {
-            Button btn = (Button) findViewById(R.id.bNewStave);
-            btn.setText(getText(R.string.button_main_es));
-
-            TextView tvw = (TextView) findViewById(R.id.textClef);
-            tvw.setText(getText(R.string.select_text_main_clef_es));
-
-            tvw = (TextView) findViewById(R.id.textMeasure);
-            tvw.setText(getText(R.string.select_text_main_measure_es));
-        } else {
-            Button btn = (Button) findViewById(R.id.bNewStave);
-            btn.setText(getText(R.string.button_main));
-
-            TextView tvw = (TextView) findViewById(R.id.textClef);
-            tvw.setText(getText(R.string.select_text_main_key));
-
-            tvw = (TextView) findViewById(R.id.textMeasure);
-            tvw.setText(getText(R.string.select_text_main_measure));
-        }
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.major:
-                if (checked)
-                    // Major selected
-                    break;
-            case R.id.minor:
-                if (checked)
-                    // Minor selected
-                    break;
-        }
-    }
-
 
 }

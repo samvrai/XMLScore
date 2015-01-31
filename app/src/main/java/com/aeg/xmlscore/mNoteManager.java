@@ -72,7 +72,7 @@ public class mNoteManager {
 
 
     public int howManyStages() {
-        int res = 0;
+        int res = 1;
         int actual = 0;
         Iterator<Note> it = this.noteList.iterator();
         Note note = null;

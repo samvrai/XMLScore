@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinnerK">
-        <item>Sharp key C major</item>
-        <item>Sharp key G major</item>
-        <item>Sharp key D major</item>
-        <item>Sharp key A major</item>
-        <item>Sharp key E major</item>
-        <item>Sharp key B major</item>
-        <item>Sharp key F# major</item>
-        <item>Sharp key C# major</item>
-        <item>Flat key C major</item>
-        <item>Flat key F major</item>
-        <item>Flat key Bb major</item>
-        <item>Flat key Eb major</item>
-        <item>Flat key Ab major</item>
-        <item>Flat key Db major</item>
-        <item>Flat key Gb major</item>
-        <item>Flat key Cb major</item>
+        <item>+7#</item>
+        <item>+6#</item>
+        <item>+5#</item>
+        <item>+4#</item>
+        <item>+3#</item>
+        <item>+2#</item>
+        <item>+1#</item>
+        <item>0</item>
+        <item>+1b</item>
+        <item>+2b</item>
+        <item>+3b</item>
+        <item>+4b</item>
+        <item>+5b</item>
+        <item>+6b</item>
+        <item>+7b</item>
     </string-array>
     <string-array name="spinnerM">
         <item>2/4</item>
@@ -24,11 +23,5 @@
         <item>3/4</item>
         <item>9/8</item>
         <item>4/4</item>
-        <item>12/8</item>
-    </string-array>
-
-    <string-array name="spinnerL">
-        <item>Spanish</item>
-        <item>English</item>
     </string-array>
 </resources>

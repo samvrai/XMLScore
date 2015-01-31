@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -59,6 +61,8 @@ public class Stave extends FragmentActivity {
         notesPager.setAdapter(nAdapter);
 
         AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager, this);
+
+        Writer.getmWriter().setContext(this);
     }
 
 
@@ -73,10 +77,6 @@ public class Stave extends FragmentActivity {
         return true;
     }
 
-    private void openSettings() {
-        Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
-    }
 
     private void openSave() {
         /*Intent intent = new Intent(this, Settings.class);
@@ -90,9 +90,6 @@ public class Stave extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_settings:
-                openSettings();
-                return true;
             case R.id.action_save:
                 openSave();
                 return true;
@@ -103,31 +100,32 @@ public class Stave extends FragmentActivity {
 
     public void addStage(View v) {
         AdapterManager.getMaM().getpAdapter().addStage();
-        AdapterManager.getMaM().getVpager().setCurrentItem(AdapterManager.getMaM().getpAdapter().getCount() - 1);
+        //AdapterManager.getMaM().getVpager().setCurrentItem(AdapterManager.getMaM().getpAdapter().getCount() - 1);
         //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
 
-        /*for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
-            JSONObject json = new JSONObject();
-            Note note = mNoteManager.getNoteManager().getNote(i);
-            json.
-        }*/
+        JSONArray noteList = new JSONArray();
+        try {
+            for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
+                JSONObject json = new JSONObject();
+                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
+                noteList.put(json);
+            }
 
-        JSONObject json = new JSONObject();
-        for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
-            //json.accumulate("Notes", mNoteManager.getNoteManager().getNote(i));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-
-        /**
-         * TODO Guardar fichero notas y destruir
-         */
-
+        Writer.getmWriter().saveJson(noteList);
+        super.onDestroy();
     }
 
     public void saveState(View v) {
@@ -165,6 +163,9 @@ public class Stave extends FragmentActivity {
                 vg.removeViewAt(i);
             }
         }
+        int stage = mNoteManager.getNoteManager().getInTransaction().getStage();
         mNoteManager.getNoteManager().removeNote();
+
+        mTools.getTools().relocate(stage, vg);
     }
 }
