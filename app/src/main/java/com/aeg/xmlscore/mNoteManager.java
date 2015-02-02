@@ -108,7 +108,7 @@ public class mNoteManager {
         while(it.hasNext() && !found) {
             np = it.next();
             //Log.v("Flag",np.getName() + " " + this.notePoses.size() + " " + np.getPosition());
-            if(np.getName() == pNom) {
+            if(np.getName().equals(pNom)) {
                 found = true;
                 result = np.getPosition();
             }
@@ -116,53 +116,52 @@ public class mNoteManager {
         return result;
     }
 
-    public float getNoteY(String pNote) {
+    public float getNoteY(char pNote, int oct) {
         float result = 0;
-        Log.v("Flag", pNote);
-        switch(pNote) {
-            case "am":
+        switch(pNote + "|" + oct) {
+            case ("A|4"):
                 result = this.search("am");
                 break;
-            case "aM":
+            case ("A|5"):
                 result = this.search("aM");
                 break;
-            case "bM":
+            case ("B|5"):
                 result = this.search("bM");
                 break;
-            case "bm":
+            case ("B|4"):
                 result = this.search("bm");
                 break;
-            case "cm":
+            case ("C|4"):
                 result = this.search("cm");
                 break;
-            case "cM":
+            case ("C|5"):
                 result = this.search("cM");
                 break;
-            case "cMM":
+            case ("C|6"):
                 result = this.search("cMM");
                 break;
-            case "dm":
+            case ("D|4"):
                 result = this.search("dm");
                 break;
-            case "dM":
+            case ("D|5"):
                 result = this.search("dM");
                 break;
-            case "eM":
+            case ("E|5"):
                 result = this.search("eM");
                 break;
-            case "em":
+            case ("E|4"):
                 result = this.search("em");
                 break;
-            case "fm":
+            case ("F|4"):
                 result = this.search("fm");
                 break;
-            case "fM":
+            case ("F|5"):
                 result = this.search("fM");
                 break;
-            case "gM":
+            case ("G|5"):
                 result = this.search("gM");
                 break;
-            case "gm":
+            case ("G|4"):
                 result = this.search("gm");
 
                 break;

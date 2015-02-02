@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -27,29 +28,12 @@ public class Stave extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stave);
-
-        Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            String sClef = extras.getString("CLEF");
-            String sMeas = extras.getString("MEASURE");
-            if(sClef != null && sMeas != null) {
-                setTitle("Key is " + sClef + ", measure is " + sMeas);
-            }
-        }
-
-        int num = 0;
-        int den = 0;
-        if(extras != null) {
-
-            num = extras.getInt("NUM");
-            den = extras.getInt("DEN");
-        }
+        setTitle("Key " + mMeasureCounter.getmMC().getKey() + ", M " + mMeasureCounter.getmMC().getNum() + "/" + mMeasureCounter.getmMC().getDen() + " , " + mTools.getTools().getName());
 
         ViewPageAdapter pAdapter;
         NotesAdapter nAdapter;
         ViewPager vpager, notesPager;
 
-        mMeasureCounter.getmMC().setArguments(num, den);
         pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
 
         vpager = (ViewPager) findViewById(R.id.lStave);
@@ -61,8 +45,6 @@ public class Stave extends FragmentActivity {
         notesPager.setAdapter(nAdapter);
 
         AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager, this);
-
-        Writer.getmWriter().setContext(this);
     }
 
 
@@ -79,8 +61,34 @@ public class Stave extends FragmentActivity {
 
 
     private void openSave() {
-        /*Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);*/
+        JSONArray noteList = new JSONArray();
+        try {
+            JSONObject jsid = new JSONObject();
+            jsid.put("KEY", mMeasureCounter.getmMC().getKey());
+            jsid.put("NUM", mMeasureCounter.getmMC().getNum());
+            jsid.put("DEN", mMeasureCounter.getmMC().getDen());
+            noteList.put(jsid);
+            for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
+                JSONObject json = new JSONObject();
+                json.put("NAME", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("TYPE", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("WEIGHT", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("REST", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("STAGE", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("FLAGS", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("FLAGF", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("FLAGD", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("FLAGN", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("OCTAVE", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("BITMAP", mNoteManager.getNoteManager().getNote(i).getName());
+                noteList.put(json);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Writer.getmWriter().saveJson(noteList, mTools.getTools().getName(), this);
+
+        Writer.getmWriter().export(mTools.getTools().getName(), this);
     }
 
     @Override
@@ -90,7 +98,7 @@ public class Stave extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_save:
+            case R.id.action_saving:
                 openSave();
                 return true;
             default:
@@ -107,24 +115,7 @@ public class Stave extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
-
-        JSONArray noteList = new JSONArray();
-        try {
-            for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
-                JSONObject json = new JSONObject();
-                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("Name", mNoteManager.getNoteManager().getNote(i).getName());
-                noteList.put(json);
-            }
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Writer.getmWriter().saveJson(noteList);
+        openSave();
         super.onDestroy();
     }
 
@@ -149,11 +140,13 @@ public class Stave extends FragmentActivity {
             note.setFlagN(false);
         }
 
-        ViewGroup vg = (ViewGroup)findViewById(R.id.notePlace);
+        ViewGroup vg = ((Stage)AdapterManager.getMaM().getpAdapter().getItem(AdapterManager.getMaM().getVpager().getCurrentItem())).getNotePlace();
         for(int i = 0; i < vg.getChildCount(); i++) {
             vg.getChildAt(i).setBackground(null);
         }
         AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
+
+        mTools.getTools().relocate(AdapterManager.getMaM().getVpager().getCurrentItem(), vg);
     }
 
     public void removeNote(View v) {

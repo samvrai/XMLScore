@@ -6,7 +6,8 @@ package com.aeg.xmlscore;
 public class mMeasureCounter {
 
     private static mMeasureCounter mMC;
-    private float num, den, max;
+    private int num, den, max;
+    private int keyNum;
 
     private mMeasureCounter() {
 
@@ -21,10 +22,10 @@ public class mMeasureCounter {
 
     private void setMax() {
         if(den == 4) {
-            max = num * den;
+            max = num * 16;
         }
         else {
-            max = num * 2;
+            max = num * 24;
         }
     }
 
@@ -36,13 +37,17 @@ public class mMeasureCounter {
         return res;
     }
 
-    public void setArguments(int num, int den) {
+    public void setArguments(int num, int den, int pkey) {
         this.num = num;
         this.den = den;
+        this.keyNum = pkey;
         this.setMax();
     }
 
     public float getMax() { return this.max;}
 
+    public int getKey() { return this.keyNum;}
+    public int getNum() { return num;}
+    public int getDen() { return den;}
 
 }

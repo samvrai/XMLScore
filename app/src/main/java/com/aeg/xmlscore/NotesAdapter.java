@@ -31,6 +31,7 @@ public class NotesAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
+        //return notePages.size() - 1;
         return notePages.size();
     }
 }

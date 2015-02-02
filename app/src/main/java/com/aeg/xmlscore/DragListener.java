@@ -52,10 +52,13 @@ public class DragListener implements View.OnDragListener {
                  * Enable Drawing Cache to clone the bitmap.
                  */
 
-                String name = mTools.getTools().droppedN(v.getId());
+                char name = mTools.getTools().droppedN(v.getId());
                 ImageView target = (ImageView) event.getLocalState();
                 float weight = mTools.getTools().droppedW(target.getId());
+                int octave = mTools.getTools().droppedOctave(v.getId());
                 ((ImageView) event.getLocalState()).setDrawingCacheEnabled(true);
+                String type = mTools.getTools().droppedT(target.getId());
+                boolean rest = mTools.getTools().isRest(target.getId());
 
 
 
@@ -97,7 +100,7 @@ public class DragListener implements View.OnDragListener {
                 //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
 
                 if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
-                    this.doAdding(name, weight, event, newOwner);
+                    this.doAdding(name, weight, event, newOwner, octave, type, rest);
                 } else {
                     Toast.makeText(ctx.getActivity(), R.string.error_add, Toast.LENGTH_SHORT).show();
                 }
@@ -110,8 +113,8 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void doAdding(String name, float weight, DragEvent event, ViewGroup newOwner) {
-        Note note = new Note(name, weight, ctx.getPosition(), ((ImageView) event.getLocalState()).getDrawingCache());
+    private void doAdding(char name, float weight, DragEvent event, ViewGroup newOwner, int octave, String type, boolean rest) {
+        Note note = new Note(name, weight, ctx.getPosition(), octave, ((ImageView) event.getLocalState()).getDrawingCache(), type, rest);
 
         boolean added = false;
         for(int i = 0; i < newOwner.getChildCount() && !added; i++) {

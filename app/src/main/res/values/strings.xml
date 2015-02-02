@@ -68,5 +68,6 @@
     <string name="line_cmmm">CMM</string>
     <string name="added_notes">Note added</string>
     <string name="title_activity_load">Load stave</string>
+    <string name="insert_name">Insert file name</string>
 
 </resources>

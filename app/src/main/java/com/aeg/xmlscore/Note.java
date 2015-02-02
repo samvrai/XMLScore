@@ -9,34 +9,42 @@ import android.graphics.Bitmap;
  */
 public class Note {
 
-    private String name;
+    private char name;
+    private String type;
     private float weight;
     private float nWeight;
-
+    private boolean rest;
     private int stage;
     private int id;
+    private int octave;
     private Bitmap image;
-    private boolean flagB, flagS, flagN, flagD;
+    private boolean flagF, flagS, flagN, flagD;
 
 
-    public Note(String name, float weight, int stage, Bitmap image) {
+    public Note(char name, float weight, int stage, int octave, Bitmap image, String ptype, boolean rest) {
         this.name = name;
         this.weight = weight;
         this.nWeight = weight;
-        flagB = false;
+        flagF = false;
         flagS = false;
+        this.octave = octave;
         this.stage = stage;
         this.image = image;
+        this.type = ptype;
         id = mId.getmId().generateId();
+        this.rest = rest;
     }
 
-    public void setFlagB(boolean flagB) {
-        this.flagB = flagB;
+    public void setFlagB(boolean flagF) {
+        this.flagF = flagF;
     }
 
     public void setFlagS(boolean flagS) {
         this.flagS = flagS;
     }
+
+    public boolean isFlagF() { return this.flagF;}
+    public boolean isFlagS() { return this.flagS;}
 
     public boolean isFlagN() {
         return flagN;
@@ -60,8 +68,7 @@ public class Note {
         this.flagN = flagN;
     }
 
-    public String getName() {
-
+    public char getName() {
         return name;
     }
 
@@ -79,4 +86,9 @@ public class Note {
     }
 
     public int getId() { return id;}
+
+    public int getOctave() { return octave;}
+
+    public String getType() { return type;}
+    public boolean isRest() { return rest;}
 }
