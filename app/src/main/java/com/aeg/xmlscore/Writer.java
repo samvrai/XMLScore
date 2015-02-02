@@ -40,11 +40,7 @@ public class Writer {
                    home.mkdirs();
             }
             File project = new File(home, name + ".mxl");
-            if(project.exists()) {
-                Toast.makeText(ctx, "File already exists", Toast.LENGTH_SHORT).show();
-            } else {
-                this.writeMusic(project, ctx);
-            }
+            this.writeMusic(project, ctx);
         }
     }
 
@@ -142,6 +138,16 @@ public class Writer {
 
     public void populate() {
 
+    }
+
+    public boolean checkIfExists(String name) {
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File home = new File(dir, "XMLScore");
+        if(!home.exists()) {
+            home.mkdirs();
+        }
+        File project = new File(home, name + ".mxl");
+        return project.exists();
     }
 
 }

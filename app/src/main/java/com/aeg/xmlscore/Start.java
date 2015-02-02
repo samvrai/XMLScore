@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Start extends Activity {
@@ -92,38 +93,39 @@ public class Start extends Activity {
     }
 
     public void newStave(View view) {
-
         EditText et = (EditText) findViewById(R.id.staveName);
-        mTools.getTools().setName(et.getText().toString());
-        Intent intent = new Intent(this, Stave.class);
-        Spinner sKey = (Spinner) findViewById(R.id.spinnerKey);
-        Spinner sMeasure = (Spinner) findViewById(R.id.spinnerMeasure);
-        String pKey = (String) sKey.getSelectedItem();
-        String pMeas = (String) sMeasure.getSelectedItem();
-        int check = -1;
-        int num = 0;
-        int den = 0;
-        int key = 0;
-        for(int i = 0; i < pMeas.length(); i++) {
-            if(pMeas.charAt(i) == '/') {
-                String tgt = pMeas.substring(0,i);
-                num = Integer.valueOf(tgt);
-                check = i;
-            } else if(i == pMeas.length() - 1) {
-                String tgt = pMeas.substring(check + 1);
-                den = Integer.valueOf(tgt);
+        if(!Writer.getmWriter().checkIfExists(et.getText().toString())) {
+            mTools.getTools().setName(et.getText().toString());
+            Intent intent = new Intent(this, Stave.class);
+            Spinner sKey = (Spinner) findViewById(R.id.spinnerKey);
+            Spinner sMeasure = (Spinner) findViewById(R.id.spinnerMeasure);
+            String pKey = (String) sKey.getSelectedItem();
+            String pMeas = (String) sMeasure.getSelectedItem();
+            int check = -1;
+            int num = 0;
+            int den = 0;
+            int key = 0;
+            for(int i = 0; i < pMeas.length(); i++) {
+                if(pMeas.charAt(i) == '/') {
+                    String tgt = pMeas.substring(0,i);
+                    num = Integer.valueOf(tgt);
+                    check = i;
+                } else if(i == pMeas.length() - 1) {
+                    String tgt = pMeas.substring(check + 1);
+                    den = Integer.valueOf(tgt);
+                }
             }
-        }
-        if(pKey.contains("#")) {
-            key = Integer.getInteger(pKey.substring(0, 1));
-        } else if (pKey.contains("b")) {
-            key = Integer.getInteger(pKey.substring(0, 1));
-            key *= -1;
-        }
-        mMeasureCounter.getmMC().setArguments(num, den, key);
+            if(pKey.contains("#")) {
+                key = Integer.getInteger(pKey.substring(0, 1));
+            } else if (pKey.contains("b")) {
+                key = Integer.getInteger(pKey.substring(0, 1));
+                key *= -1;
+            }
+            mMeasureCounter.getmMC().setArguments(num, den, key);
 
-        startActivity(intent);
-
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "File already exists", Toast.LENGTH_SHORT).show();
+        }
     }
-
 }
