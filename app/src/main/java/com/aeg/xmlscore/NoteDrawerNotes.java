@@ -12,7 +12,7 @@ import android.widget.ImageView;
 /**
  * Created by will on 19/11/14.
  */
-public class NoteDrawerB extends Fragment {
+public class NoteDrawerNotes extends Fragment {
 
 
     @Override
@@ -25,7 +25,7 @@ public class NoteDrawerB extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_notes_b, container, false);
+        View v = inflater.inflate(R.layout.fragment_notes, container, false);
 
         ImageView iv = (ImageView)v.findViewById(R.id.whole);
         iv.setOnLongClickListener(new LCListener(this.getActivity()));
@@ -36,10 +36,16 @@ public class NoteDrawerB extends Fragment {
         iv = (ImageView)v.findViewById(R.id.quarter);
         iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
-        iv = (ImageView)v.findViewById(R.id.eight);
+        iv = (ImageView)v.findViewById(R.id.eighth);
         iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
         iv = (ImageView)v.findViewById(R.id.sixteenth);
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
+
+        iv = (ImageView)v.findViewById(R.id.thirtytwoth);
+        iv.setOnLongClickListener(new LCListener(this.getActivity()));
+
+        iv = (ImageView)v.findViewById(R.id.sixtyfourth);
         iv.setOnLongClickListener(new LCListener(this.getActivity()));
 
 

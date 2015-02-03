@@ -1,6 +1,7 @@
 package com.aeg.xmlscore;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -34,16 +35,16 @@ public class ClickListener implements View.OnClickListener {
             vg.getChildAt(i).setBackground(null);
         }
 
-            cDotted.setChecked(false);
-            cNatural.setChecked(false);
-            note = mNoteManager.getNoteManager().getNoteById(v.getId());
-            v.setBackground(ctx.getResources().getDrawable(R.drawable.shape));
-            AdapterManager.getMaM().getNotesPager().setCurrentItem(1);
-            if(note.isFlagD()) {
-                cDotted.setChecked(true);
-            }
-            if(note.isFlagN()) {
-                cNatural.setChecked(true);
-            }
+        cDotted.setChecked(false);
+        cNatural.setChecked(false);
+        note = mNoteManager.getNoteManager().getNoteById(v.getId());
+        v.setBackground(ctx.getResources().getDrawable(R.drawable.shape));
+        AdapterManager.getMaM().getNotesPager().setCurrentItem(2);
+        if(note.isFlagD()) {
+            cDotted.setChecked(true);
+        }
+        if(note.isFlagN()) {
+            cNatural.setChecked(true);
+        }
     }
 }

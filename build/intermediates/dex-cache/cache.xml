@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
-        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-1e9bba1e7979125665c442d859d2bfa58fa53060.jar" />
-    </item>
-    <item
         jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
         jumboMode="false"
         revision="19.1.0"
@@ -21,6 +14,13 @@
         revision="19.1.0"
         sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
         <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-a7e4777d391a2dcc311e7a161643f2ec2e3736b6.jar" />
+    </item>
+    <item
+        jar="/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-1e9bba1e7979125665c442d859d2bfa58fa53060.jar" />
     </item>
 
 </items>

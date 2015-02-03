@@ -46,7 +46,7 @@ public class mTools {
             case R.id.quarter:
                 weight = 16;
                 break;
-            case R.id.eight:
+            case R.id.eighth:
                 weight = 8;
                 break;
             case R.id.sixteenth:
@@ -62,9 +62,9 @@ public class mTools {
         this.name = name;
     }
 
-    public String droppedT(int id) {
-        String weight = null;
 
+    public String droppedT(int id) {
+        String weight = "";
         switch (id) {
             case R.id.whole:
                 weight = "whole";
@@ -75,7 +75,7 @@ public class mTools {
             case R.id.quarter:
                 weight = "quarter";
                 break;
-            case R.id.eight:
+            case R.id.eighth:
                 weight = "eighth";
                 break;
             case R.id.sixteenth:
@@ -204,7 +204,8 @@ public class mTools {
     }
 
     public boolean isRest(int id) {
-        return true;
+
+        return false;
     }
 
     public void relocate(int stage, ViewGroup vg) {
@@ -212,7 +213,7 @@ public class mTools {
         Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
 
         float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
-        float accumulate = 0;
+        float accumulate = 120;
 
         vg.removeAllViews();
 
@@ -229,9 +230,9 @@ public class mTools {
             if(y < 450) {
                 iv.setRotationX(180);
                 iv.setRotationY(180);
-                y -= 50;
+                y -= 15;
             } else {
-                y -= 230;
+                y -= 200;
             }
             iv.setY(y);
             /*if(note.isFlagF()) {

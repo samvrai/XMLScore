@@ -6,4 +6,5 @@
     <dimen name="main_title_text_size">30sp</dimen>
     <dimen name="picture_height">103dp</dimen>
     <dimen name="picture_width">180dp</dimen>
+    <dimen name="note_pic_dimen">80dp</dimen>
 </resources>

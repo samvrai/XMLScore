@@ -4,20 +4,12 @@ package com.aeg.xmlscore;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 
 /**
@@ -46,7 +38,7 @@ public class Stage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View v = inflater.inflate(R.layout.fragment_stave_2, container, false);
+        View v = inflater.inflate(R.layout.fragment_stave, container, false);
 
         mTools.getTools().loadViews(this, (ViewGroup)v.findViewById(R.id.notePlace));
 

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * Created by will on 19/11/14.
  */
-public class NoteDrawerA extends Fragment {
+public class NoteDrawerAlter extends Fragment {
 
 
     @Override
@@ -21,6 +21,6 @@ public class NoteDrawerA extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_notes_a, container, false);
+        return inflater.inflate(R.layout.fragment_alter, container, false);
     }
 }

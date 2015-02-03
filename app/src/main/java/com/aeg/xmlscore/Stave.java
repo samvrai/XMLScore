@@ -144,7 +144,6 @@ public class Stave extends FragmentActivity {
         for(int i = 0; i < vg.getChildCount(); i++) {
             vg.getChildAt(i).setBackground(null);
         }
-        AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
 
         mTools.getTools().relocate(AdapterManager.getMaM().getVpager().getCurrentItem(), vg);
     }

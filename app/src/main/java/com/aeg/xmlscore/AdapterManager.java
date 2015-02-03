@@ -25,6 +25,7 @@ public class AdapterManager {
         this.notesPager = np;
         this.ctx = ctxt;
 
+
     }
 
     public static AdapterManager getMaM() {
@@ -55,4 +56,5 @@ public class AdapterManager {
             ((Stage) pAdapter.getItem(i)).updateText();
         }
     }
+
 }

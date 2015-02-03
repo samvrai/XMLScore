@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1"
+    android:id="@+id/notesBag"
+    android:background="#DBFFFB">
+
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/whole"
+        android:contentDescription="@string/content_whole"
+        android:src="@drawable/whole"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="0dp"
+        android:longClickable="true"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/half"
+        android:contentDescription="@string/content_half"
+        android:src="@drawable/half"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/quarter"
+
+        android:contentDescription="@string/content_quarter"
+        android:src="@drawable/quarter"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="160dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/eighth"
+
+        android:contentDescription="@string/content_eight"
+        android:src="@drawable/eighth"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="240dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/sixteenth"
+        android:contentDescription="@string/content_sixteenth"
+        android:src="@drawable/sixteenth"
+
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="0dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/thirtytwoth"
+        android:contentDescription="@string/content_sixteenth"
+        android:src="@drawable/thirtytwoth"
+
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="80dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="@dimen/note_pic_dimen"
+        android:layout_height="@dimen/note_pic_dimen"
+        android:id="@+id/sixtyfourth"
+        android:contentDescription="@string/content_sixteenth"
+        android:src="@drawable/sixtyfourth"
+
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="160dp"
+        android:longClickable="true"
+        android:visibility="visible" />
+
+</RelativeLayout>

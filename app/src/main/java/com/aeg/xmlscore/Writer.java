@@ -89,8 +89,8 @@ public class Writer {
                 bw.write("\t\t\t\t\t<beats>" + mMeasureCounter.getmMC().getNum() + "</beats>\n");
                 bw.write("\t\t\t\t\t<beat-type>" + mMeasureCounter.getmMC().getDen() + "</beat-type>\n");
                 bw.write("\t\t\t\t<clef>\n");
-                bw.write("\t\t\t\t\t<sign>G</beat-type>\n");
-                bw.write("\t\t\t\t\t<line>2</beat-type>\n");
+                bw.write("\t\t\t\t\t<sign>G</sign>\n");
+                bw.write("\t\t\t\t\t<line>2</line>\n");
                 bw.write("\t\t\t\t</clef>\n");
                 bw.write("\t\t\t</attributes>\n");
                 Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(i).iterator();
