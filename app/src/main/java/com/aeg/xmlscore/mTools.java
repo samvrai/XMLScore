@@ -156,13 +156,13 @@ public class mTools {
                 name = "B";
                 break;
             case R.id.cm:
-                name = "B";
+                name = "C";
                 break;
             case R.id.cM:
-                name = "B";
+                name = "C";
                 break;
             case R.id.cMM:
-                name = "B";
+                name = "C";
                 break;
             case R.id.dm:
                 name = "D";
@@ -279,6 +279,7 @@ public class mTools {
         vg.removeAllViews();
 
         while(it.hasNext()) {
+
             Note note = it.next();
             ImageView iv = new ImageView(vg.getContext());
             iv.setId(note.getId());
@@ -293,6 +294,7 @@ public class mTools {
             iv.setOnClickListener(new ClickListener(vg.getContext()));
 
             if(!note.isRest()) {
+
                 float y = mNoteManager.getNoteManager().getNoteY(note.getName(), note.getOctave());
                 if(y < 450) {
                     iv.setRotationX(180);

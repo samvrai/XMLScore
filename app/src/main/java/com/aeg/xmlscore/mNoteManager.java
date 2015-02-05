@@ -164,7 +164,6 @@ public class mNoteManager {
                 break;
             case ("G|4"):
                 result = this.search("gm");
-
                 break;
         }
         return result;
@@ -198,11 +197,13 @@ public class mNoteManager {
         this.inTransaction = pNote;
     }
 
-    public void routine() {
+    public String routine() {
         Iterator<NotePos> inp = notePoses.iterator();
         while (inp.hasNext()) {
             NotePos np = inp.next();
             Log.v(np.getName(), String.valueOf(np.getPosition()));
         }
+
+        return String.valueOf(search("cm"));
     }
 }
