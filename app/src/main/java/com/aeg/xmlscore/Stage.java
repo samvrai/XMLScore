@@ -4,6 +4,7 @@ package com.aeg.xmlscore;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,10 +39,7 @@ public class Stage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         View v = inflater.inflate(R.layout.fragment_stave, container, false);
-
-        mTools.getTools().loadViews(this, (ViewGroup)v.findViewById(R.id.notePlace));
 
         indexPos = (TextView) v.findViewById(R.id.measurePosition);
 
@@ -151,6 +149,7 @@ public class Stage extends Fragment {
         vg = (ViewGroup) v.findViewById(R.id.notePlace);
         updateText();
 
+        mTools.getTools().relocate(position, (ViewGroup)v.findViewById(R.id.notePlace));
 
         return v;
     }

@@ -22,10 +22,10 @@ public class mMeasureCounter {
 
     private void setMax() {
         if(den == 4) {
-            max = num * 16;
+            max = num;
         }
         else {
-            max = num * 24;
+            max = num / 2;
         }
     }
 

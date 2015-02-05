@@ -54,7 +54,7 @@ public class DragListener implements View.OnDragListener {
                  * Enable Drawing Cache to clone the bitmap.
                  */
 
-                char name;
+                String name;
                 int octave;
                 ImageView target = (ImageView) event.getLocalState();
                 boolean rest = mTools.getTools().isRest(target.getId());
@@ -62,7 +62,7 @@ public class DragListener implements View.OnDragListener {
                     name = mTools.getTools().droppedN(v.getId());
                     octave = mTools.getTools().droppedOctave(v.getId());
                 } else {
-                    name = 'R';
+                    name = "R";
                     octave = 0;
                 }
                 float weight = mTools.getTools().droppedW(target.getId());
@@ -100,7 +100,7 @@ public class DragListener implements View.OnDragListener {
         return true;
     }
 
-    private void doAdding(char name, float weight, DragEvent event, ViewGroup newOwner, int octave, String type, boolean rest) {
+    private void doAdding(String name, float weight, DragEvent event, ViewGroup newOwner, int octave, String type, boolean rest) {
         Note note = new Note(name, weight, ctx.getPosition(), octave, type, rest);
         checkAncestors(note, ctx.getPosition());
 

@@ -46,6 +46,10 @@ public class Stave extends FragmentActivity {
         notesPager.setAdapter(nAdapter);
 
         AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager, this);
+
+        for(int i = 1; i <= mNoteManager.getNoteManager().howManyStages(); i++) {
+            addStage(null);
+        }
     }
 
 
@@ -72,16 +76,16 @@ public class Stave extends FragmentActivity {
             for(int i = 0; i < mNoteManager.getNoteManager().size(); i++) {
                 JSONObject json = new JSONObject();
                 json.put("NAME", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("TYPE", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("WEIGHT", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("REST", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("STAGE", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("FLAGS", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("FLAGF", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("FLAGD", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("FLAGN", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("OCTAVE", mNoteManager.getNoteManager().getNote(i).getName());
-                json.put("BITMAP", mNoteManager.getNoteManager().getNote(i).getName());
+                json.put("TYPE", mNoteManager.getNoteManager().getNote(i).getType());
+                json.put("WEIGHT", mNoteManager.getNoteManager().getNote(i).getWeight());
+                json.put("REST", mNoteManager.getNoteManager().getNote(i).isRest());
+                json.put("STAGE", mNoteManager.getNoteManager().getNote(i).getStage());
+                json.put("FLAGS", mNoteManager.getNoteManager().getNote(i).isFlagS());
+                json.put("FLAGF", mNoteManager.getNoteManager().getNote(i).isFlagF());
+                json.put("FLAGD", mNoteManager.getNoteManager().getNote(i).isFlagD());
+                json.put("FLAGN", mNoteManager.getNoteManager().getNote(i).isFlagN());
+                json.put("FLAGO", mNoteManager.getNoteManager().getNote(i).isFlagO());
+                json.put("OCTAVE", mNoteManager.getNoteManager().getNote(i).getOctave());
                 noteList.put(json);
             }
         } catch (JSONException e) {
@@ -127,8 +131,8 @@ public class Stave extends FragmentActivity {
         Note note = mNoteManager.getNoteManager().getInTransaction();
 
         if(cDotted.isChecked() && !note.isFlagD()) {
-            Toast.makeText(this, String.valueOf(note.getWeight()) + " " + String.valueOf(mNoteManager.getNoteManager().stageWeight(note.getStage())), Toast.LENGTH_SHORT).show();
-            if(mNoteManager.getNoteManager().stageWeight(note.getStage()) <= mNoteManager.getNoteManager().stageWeight(note.getStage()) + (note.getWeight()/2)) {
+
+            if(mNoteManager.getNoteManager().stageWeight(note.getStage()) + (note.getWeight()/2) <= mMeasureCounter.getmMC().getMax()) {
                 note.setFlagD(true);
             } else {
                 Toast.makeText(this, "No room for this note", Toast.LENGTH_SHORT).show();

@@ -9,7 +9,7 @@ import android.graphics.Bitmap;
  */
 public class Note {
 
-    private char name;
+    private String name;
     private String type;
     private float weight;
     private float nWeight;
@@ -20,7 +20,7 @@ public class Note {
     private boolean flagF, flagS, flagN, flagD, flagO;
 
 
-    public Note(char name, float weight, int stage, int octave, String ptype, boolean rest) {
+    public Note(String name, float weight, int stage, int octave, String ptype, boolean rest) {
         this.name = name;
         this.weight = weight;
         this.nWeight = weight;
@@ -88,7 +88,7 @@ public class Note {
         this.flagN = false;
     }
 
-    public char getName() {
+    public String getName() {
         return name;
     }
 
@@ -107,4 +107,12 @@ public class Note {
 
     public String getType() { return type;}
     public boolean isRest() { return rest;}
+
+    public void defaultFlags(boolean fs, boolean ff, boolean fo, boolean fd, boolean fn) {
+        flagN = fn;
+        flagF = ff;
+        flagS = fs;
+        flagO = fo;
+        flagD = fd;
+    }
 }

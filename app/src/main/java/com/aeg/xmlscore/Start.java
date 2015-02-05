@@ -65,7 +65,8 @@ public class Start extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         if(item.getItemId() == R.id.load) {
-
+            Intent intent = new Intent(this, Load.class);
+            startActivity(intent);
             return true;
         }
 
@@ -96,9 +97,9 @@ public class Start extends Activity {
                 }
             }
             if(pKey.contains("#")) {
-                key = Integer.getInteger(pKey.substring(0, 1));
+                key = Character.getNumericValue(pKey.charAt(1));
             } else if (pKey.contains("b")) {
-                key = Integer.getInteger(pKey.substring(0, 1));
+                key = Character.getNumericValue(pKey.charAt(1));
                 key *= -1;
             }
             mMeasureCounter.getmMC().setArguments(num, den, key);

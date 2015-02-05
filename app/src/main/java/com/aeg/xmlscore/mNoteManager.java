@@ -101,6 +101,7 @@ public class mNoteManager {
     }
 
     private float search(String pNom) {
+        Log.v("POS", "2");
         Iterator<NotePos> it = this.notePoses.iterator();
         float result = 0;
         boolean found = false;
@@ -116,7 +117,7 @@ public class mNoteManager {
         return result;
     }
 
-    public float getNoteY(char pNote, int oct) {
+    public float getNoteY(String pNote, int oct) {
         float result = 0;
         switch(pNote + "|" + oct) {
             case ("A|4"):
@@ -195,5 +196,13 @@ public class mNoteManager {
 
     public void setInTransaction(Note pNote) {
         this.inTransaction = pNote;
+    }
+
+    public void routine() {
+        Iterator<NotePos> inp = notePoses.iterator();
+        while (inp.hasNext()) {
+            NotePos np = inp.next();
+            Log.v(np.getName(), String.valueOf(np.getPosition()));
+        }
     }
 }

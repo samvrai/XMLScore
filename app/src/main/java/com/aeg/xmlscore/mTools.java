@@ -39,46 +39,46 @@ public class mTools {
 
         switch (id) {
             case R.id.whole:
-                weight = 64;
+                weight = 4f;
                 break;
             case R.id.wholerest:
-                weight = 64;
+                weight = 4f;
                 break;
             case R.id.half:
-                weight = 32;
+                weight = 2f;
                 break;
             case R.id.halfrest:
-                weight = 32;
+                weight = 2f;
                 break;
             case R.id.quarter:
-                weight = 16;
+                weight = 1f;
                 break;
             case R.id.quarterrest:
-                weight = 16;
+                weight = 1f;
                 break;
             case R.id.eighth:
-                weight = 8;
+                weight = 0.5f;
                 break;
             case R.id.eighthrest:
-                weight = 8;
+                weight = 0.5f;
                 break;
             case R.id.sixteenth:
-                weight = 4;
+                weight = 0.25f;
                 break;
             case R.id.sixteenthrest:
-                weight = 4;
+                weight = 0.25f;
                 break;
             case R.id.thirtytwoth:
-                weight = 2;
+                weight = 0.125f;
                 break;
             case R.id.thirtytwothrest:
-                weight = 2;
+                weight = 0.125f;
                 break;
             case R.id.sixtyfourth:
-                weight = 1;
+                weight = 0.0625f;
                 break;
             case R.id.sixtyfourthrest:
-                weight = 1;
+                weight = 0.0625f;
                 break;
         }
 
@@ -140,53 +140,53 @@ public class mTools {
         return weight;
     }
 
-    public char droppedN(int id) {
-        char name = ' ';
+    public String droppedN(int id) {
+        String name = "";
         switch (id) {
             case R.id.am:
-                name = 'A';
+                name = "A";
                 break;
             case R.id.aMb:
-                name = 'A';
+                name = "A";
                 break;
             case R.id.bM:
-                name = 'B';
+                name = "B";
                 break;
             case R.id.bmb:
-                name = 'B';
+                name = "B";
                 break;
             case R.id.cm:
-                name = 'C';
+                name = "B";
                 break;
             case R.id.cM:
-                name = 'C';
+                name = "B";
                 break;
             case R.id.cMM:
-                name = 'C';
+                name = "B";
                 break;
             case R.id.dm:
-                name = 'D';
+                name = "D";
                 break;
             case R.id.dMb:
-                name = 'D';
+                name = "D";
                 break;
             case R.id.eM:
-                name = 'E';
+                name = "E";
                 break;
             case R.id.emb:
-                name = 'E';
+                name = "E";
                 break;
             case R.id.fm:
-                name = 'F';
+                name = "F";
                 break;
             case R.id.fMb:
-                name = 'F';
+                name = "F";
                 break;
             case R.id.gM:
-                name = 'G';
+                name = "G";
                 break;
             case R.id.gmb:
-                name = 'G';
+                name = "G";
                 break;
 
         }
@@ -302,7 +302,7 @@ public class mTools {
                     y -= 268;
                 }
                 iv.setY(y);
-                if(note.getOctave() == 4 && note.getName() == 'C') {
+                if(note.getOctave() == 4 && note.getName() == "C") {
                     ImageView lc = new ImageView(vg.getContext());
                     Bitmap bmc = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lc.setImageBitmap(bmc);
@@ -318,7 +318,7 @@ public class mTools {
                     lc.setY(600);
                     vg.addView(lc);
                 }
-                if(note.getOctave() == 4 && note.getName() == 'D') {
+                if(note.getOctave() == 4 && note.getName() == "D") {
                     ImageView ld = new ImageView(vg.getContext());
                     Bitmap bmd = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     ld.setImageBitmap(bmd);
@@ -333,7 +333,7 @@ public class mTools {
                     ld.setY(570);
                     vg.addView(ld);
                 }
-                if(note.getOctave() == 5 && note.getName() == 'G') {
+                if(note.getOctave() == 5 && note.getName() == "G") {
                     ImageView lg = new ImageView(vg.getContext());
                     Bitmap bmg = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lg.setImageBitmap(bmg);
@@ -348,7 +348,7 @@ public class mTools {
                     lg.setY(270);
                     vg.addView(lg);
                 }
-                if(note.getOctave() == 5 && note.getName() == 'A') {
+                if(note.getOctave() == 5 && note.getName() == "A") {
                     ImageView la = new ImageView(vg.getContext());
                     Bitmap bma = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     la.setImageBitmap(bma);
@@ -363,7 +363,7 @@ public class mTools {
                     la.setY(240);
                     vg.addView(la);
                 }
-                if(note.getOctave() == 5 && note.getName() == 'B') {
+                if(note.getOctave() == 5 && note.getName() == "B") {
                     ImageView lb = new ImageView(vg.getContext());
                     Bitmap bmb = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lb.setImageBitmap(bmb);
@@ -378,7 +378,7 @@ public class mTools {
                     lb.setY(210);
                     vg.addView(lb);
                 }
-                if(note.getOctave() == 6 && note.getName() == 'C') {
+                if(note.getOctave() == 6 && note.getName() == "C") {
                     ImageView lc2 = new ImageView(vg.getContext());
                     Bitmap bmc2 = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lc2.setImageBitmap(bmc2);
@@ -471,38 +471,6 @@ public class mTools {
             }
             vg.addView(iv);
         }
-    }
-
-    public void loadViews(Stage stage, ViewGroup vg) {
-        //ViewGroup vg = (ViewGroup)stage.getActivity().findViewById(R.id.notePlace);
-        ArrayList<Note> al = mNoteManager.getNoteManager().notesAtStage(stage.getPosition());
-
-        vg.removeAllViews();
-
-        Iterator<Note> it = al.iterator();
-        Note dummy;
-        while(it.hasNext()) {
-            dummy = it.next();
-            ImageView iv = new ImageView(stage.getActivity());
-            iv.setImageBitmap(bitmapper(dummy.getType(), dummy.isRest(), vg.getResources()));
-
-            float y = mNoteManager.getNoteManager().getNoteY(dummy.getName(), dummy.getOctave());
-            if(y < 450) {
-                iv.setRotationX(180);
-                iv.setRotationY(180);
-                y -= 50;
-            } else {
-                y -= 230;
-            }
-
-            iv.setY(y);
-            iv.setId(dummy.getId());
-            //Toast.makeText(stage.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
-            iv.setOnClickListener(new ClickListener(vg.getContext()));
-            vg.addView(iv);
-        }
-
-        this.relocate(stage.getPosition(), vg);
     }
 
     public String getName() { return name;}
