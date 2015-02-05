@@ -7,7 +7,8 @@
     android:layout_height="fill_parent"
     android:weightSum="1"
     android:id="@+id/notesBag"
-    android:background="#DBFFFB">
+    android:background="#FFFFF0">
+
 
 
     <ImageView
@@ -18,9 +19,11 @@
         android:src="@drawable/whole"
 
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="5dp"
         android:longClickable="true"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        android:adjustViewBounds="false"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -30,9 +33,10 @@
         android:src="@drawable/half"
 
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="95dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -43,9 +47,10 @@
         android:src="@drawable/quarter"
 
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginLeft="185dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -56,9 +61,10 @@
         android:src="@drawable/eighth"
 
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="240dp"
+        android:layout_marginLeft="275dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -68,9 +74,10 @@
         android:src="@drawable/sixteenth"
 
         android:layout_marginTop="120dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="50dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -80,9 +87,10 @@
         android:src="@drawable/thirtytwoth"
 
         android:layout_marginTop="120dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="140dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
     <ImageView
         android:layout_width="@dimen/note_pic_dimen"
@@ -92,8 +100,9 @@
         android:src="@drawable/sixtyfourth"
 
         android:layout_marginTop="120dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginLeft="230dp"
         android:longClickable="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/border" />
 
 </RelativeLayout>

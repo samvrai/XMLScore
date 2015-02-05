@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -54,7 +55,6 @@ public class Stage extends Fragment {
         ImageView iv = (ImageView) v.findViewById(R.id.am);
         iv.setOnDragListener(new DragListener(this));
         RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
-        //Log.v("Measure", lp.topMargin + " " + getResources().getDisplayMetrics().density);
         mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
 
         iv = (ImageView) v.findViewById(R.id.aMb);

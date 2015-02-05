@@ -10,7 +10,8 @@ public class AdapterManager {
 
     private ViewPageAdapter pAdapter;
     private NotesAdapter nAdapter;
-    private ViewPager vpager, notesPager;
+    private ViewPager vpager;
+    private ViewPager notesPager;
     private static AdapterManager mAm;
     private Context ctx;
 
@@ -24,7 +25,7 @@ public class AdapterManager {
         this.vpager = vp;
         this.notesPager = np;
         this.ctx = ctxt;
-
+        this.notesPager.setOffscreenPageLimit(2);
 
     }
 

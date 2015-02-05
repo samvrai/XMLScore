@@ -43,30 +43,10 @@ public class Start extends Activity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sMeasure.setAdapter(adapter2);
+        sMeasure.setSelection(4);
 
         EditText et = (EditText) findViewById(R.id.staveName);
-        et.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                Button btn = (Button) findViewById(R.id.bNewStave);
-                String txt = s.toString();
-                if(!txt.contains(" ") && !txt.equals("")) {
-                    btn.setEnabled(true);
-                }else {
-                    btn.setEnabled(false);
-                }
-            }
-        });
     }
 
 

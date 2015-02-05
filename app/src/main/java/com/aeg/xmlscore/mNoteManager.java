@@ -192,4 +192,8 @@ public class mNoteManager {
     }
 
     public void removeNote() { this.noteList.remove(this.inTransaction);}
+
+    public void setInTransaction(Note pNote) {
+        this.inTransaction = pNote;
+    }
 }

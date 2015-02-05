@@ -17,30 +17,28 @@ public class Note {
     private int stage;
     private int id;
     private int octave;
-    private Bitmap image;
-    private boolean flagF, flagS, flagN, flagD;
+    private boolean flagF, flagS, flagN, flagD, flagO;
 
 
-    public Note(char name, float weight, int stage, int octave, Bitmap image, String ptype, boolean rest) {
+    public Note(char name, float weight, int stage, int octave, String ptype, boolean rest) {
         this.name = name;
         this.weight = weight;
         this.nWeight = weight;
         flagF = false;
         flagS = false;
+        flagO = true;
         this.octave = octave;
         this.stage = stage;
-        this.image = image;
         this.type = ptype;
         id = mId.getmId().generateId();
         this.rest = rest;
     }
 
-    public void setFlagB(boolean flagF) {
-        this.flagF = flagF;
-    }
-
-    public void setFlagS(boolean flagS) {
-        this.flagS = flagS;
+    public void setFlagS() {
+        this.flagO = false;
+        this.flagS = true;
+        this.flagF = false;
+        this.flagN = false;
     }
 
     public boolean isFlagF() { return this.flagF;}
@@ -53,6 +51,7 @@ public class Note {
     public boolean isFlagD() {
         return flagD;
     }
+    public boolean isFlagO() { return flagO; }
 
     public void setFlagD(boolean flagD) {
         this.flagD = flagD;
@@ -64,8 +63,29 @@ public class Note {
         }
     }
 
-    public void setFlagN(boolean flagN) {
-        this.flagN = flagN;
+    public void setFlagN(boolean fn) {
+        if(fn) {
+            flagN = true;
+            flagF = false;
+            flagS = false;
+            flagO = true;
+        } else {
+            flagN = false;
+        }
+    }
+
+    public void setFlagO() {
+        this.flagO = true;
+        this.flagS = false;
+        this.flagF = false;
+
+    }
+
+    public void setFlagF() {
+        this.flagO = false;
+        this.flagS = false;
+        this.flagF = true;
+        this.flagN = false;
     }
 
     public char getName() {
@@ -79,10 +99,6 @@ public class Note {
 
     public int getStage() {
         return stage;
-    }
-
-    public Bitmap getImage() {
-        return image;
     }
 
     public int getId() { return id;}

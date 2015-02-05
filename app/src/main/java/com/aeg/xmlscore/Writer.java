@@ -72,8 +72,8 @@ public class Writer {
             bw.write("\t\t\t<part-name>Music</part-name>\n");
             bw.write("\t\t</score-part>\n");
             bw.write("\t</part-list>\n\n");
-            for(int i = 0; i < mNoteManager.getNoteManager().howManyStages(); i++) {
-                bw.write("\t<part id=\"P" + i + "\">\n");
+            bw.write("\t<part id=\"P1\">\n");
+            for(int i = 1; i <= mNoteManager.getNoteManager().howManyStages() && mNoteManager.getNoteManager().notesAtStage(i).size() > 0; i++) {
                 bw.write("\t\t<measure number=\"" + i + "\">\n");
                 bw.write("\t\t\t<attributes>\n");
                 bw.write("\t\t\t\t<divisions>" + _div + "</divisions>\n");
@@ -103,8 +103,13 @@ public class Writer {
                         bw.write("\t\t\t\t<step>" + note.getName() + "</step>\n");
                         bw.write("\t\t\t\t<octave>" + note.getOctave() + "</octave>\n");
                         bw.write("\t\t\t</pitch>\n");
-                    } else {
+                     } else {
                         bw.write("\t\t\t<rest/>\n");
+                    }
+                    if(note.getOctave() == 4 && note.getName() != 'B' && !note.isRest()) {
+                        bw.write("\t\t\t<stem>up</stem>\n");
+                    } else if(note.getOctave() > 4 && !note.isRest()){
+                        bw.write("\t\t\t<stem>down</stem>\n");
                     }
                     bw.write("\t\t\t<duration>" + _div * note.getWeight() + "</duration>\n");
                     bw.write("\t\t\t<type>" + note.getType() + "</type>\n");

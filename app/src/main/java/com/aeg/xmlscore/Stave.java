@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -122,6 +123,7 @@ public class Stave extends FragmentActivity {
     public void saveState(View v) {
         CheckBox cDotted = (CheckBox)findViewById(R.id.dotted);
         CheckBox cNatural = (CheckBox)findViewById(R.id.natural);
+        RadioGroup rG = (RadioGroup)findViewById(R.id.rGroup);
         Note note = mNoteManager.getNoteManager().getInTransaction();
 
         if(cDotted.isChecked() && !note.isFlagD()) {
@@ -136,8 +138,22 @@ public class Stave extends FragmentActivity {
         }
         if(cNatural.isChecked() && !note.isFlagN()) {
             note.setFlagN(true);
+            ((RadioButton) findViewById(R.id.normal)).setChecked(true);
+
         } else if(!cNatural.isChecked() && note.isFlagN()) {
             note.setFlagN(false);
+        }
+
+        switch (rG.getCheckedRadioButtonId()) {
+            case R.id.normal:
+                note.setFlagO();
+                break;
+            case R.id.sharp:
+                note.setFlagS();
+                break;
+            case R.id.flat:
+                note.setFlagF();
+                break;
         }
 
         ViewGroup vg = ((Stage)AdapterManager.getMaM().getpAdapter().getItem(AdapterManager.getMaM().getVpager().getCurrentItem())).getNotePlace();
@@ -145,7 +161,8 @@ public class Stave extends FragmentActivity {
             vg.getChildAt(i).setBackground(null);
         }
 
-        mTools.getTools().relocate(AdapterManager.getMaM().getVpager().getCurrentItem(), vg);
+        mTools.getTools().relocate(AdapterManager.getMaM().getVpager().getCurrentItem() + 1, vg);
+        AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
     }
 
     public void removeNote(View v) {
@@ -159,5 +176,6 @@ public class Stave extends FragmentActivity {
         mNoteManager.getNoteManager().removeNote();
 
         mTools.getTools().relocate(stage, vg);
+        AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
     }
 }

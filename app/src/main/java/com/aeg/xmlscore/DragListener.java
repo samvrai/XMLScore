@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.Iterator;
+
 /**
  * Created by will on 20/11/14.
  */
@@ -28,7 +30,7 @@ public class DragListener implements View.OnDragListener {
         switch (event.getAction()) {
 
             case DragEvent.ACTION_DRAG_ENTERED:
-                if (v.getAlpha() == 1) {
+                if (v.getAlpha() == 0.3f) {
                     v.setAlpha(0);
                 }
                 v.setAlpha(1);
@@ -36,7 +38,7 @@ public class DragListener implements View.OnDragListener {
 
             case DragEvent.ACTION_DRAG_EXITED:
                 if (v.getAlpha() == 0) {
-                    v.setAlpha(1);
+                    v.setAlpha(0.3f);
                 }
                 v.setAlpha(0);
                 break;
@@ -52,16 +54,19 @@ public class DragListener implements View.OnDragListener {
                  * Enable Drawing Cache to clone the bitmap.
                  */
 
-                char name = mTools.getTools().droppedN(v.getId());
+                char name;
+                int octave;
                 ImageView target = (ImageView) event.getLocalState();
-                float weight = mTools.getTools().droppedW(target.getId());
-                int octave = mTools.getTools().droppedOctave(v.getId());
-                ((ImageView) event.getLocalState()).setDrawingCacheEnabled(true);
-                String type = mTools.getTools().droppedT(target.getId());
                 boolean rest = mTools.getTools().isRest(target.getId());
-
-
-
+                if(!rest) {
+                    name = mTools.getTools().droppedN(v.getId());
+                    octave = mTools.getTools().droppedOctave(v.getId());
+                } else {
+                    name = 'R';
+                    octave = 0;
+                }
+                float weight = mTools.getTools().droppedW(target.getId());
+                String type = mTools.getTools().droppedT(target.getId());
                 /**
                  * Get the View instance that will contain the note.
                  *
@@ -69,24 +74,6 @@ public class DragListener implements View.OnDragListener {
                  */
                 ViewGroup newOwner = ctx.getNotePlace();
 
-
-                /*ImageView iv = new ImageView(ctx.getActivity());
-                iv.setOnClickListener(new ClickListener(ctx.getActivity()));
-                iv.setContentDescription(ctx.getString(R.string.added_notes));
-                iv.setImageBitmap(((ImageView) event.getLocalState()).getDrawingCache());
-
-                float y = mNoteManager.getNoteManager().getNoteY(name);
-
-                //Toast.makeText(ctx.getActivity(), String.valueOf(y), Toast.LENGTH_SHORT).show();
-
-                if(y < 450) {
-                    iv.setRotationX(180);
-                    iv.setRotationY(180);
-                    y -= 50;
-                } else {
-                    y -= 230;
-                }
-                iv.setY(y);*/
 
                 /**
                  * If the note position is lower or equal to 400 (Note A or higher. Screen measuring
@@ -114,7 +101,8 @@ public class DragListener implements View.OnDragListener {
     }
 
     private void doAdding(char name, float weight, DragEvent event, ViewGroup newOwner, int octave, String type, boolean rest) {
-        Note note = new Note(name, weight, ctx.getPosition(), octave, ((ImageView) event.getLocalState()).getDrawingCache(), type, rest);
+        Note note = new Note(name, weight, ctx.getPosition(), octave, type, rest);
+        checkAncestors(note, ctx.getPosition());
 
         boolean added = false;
         for(int i = 0; i < newOwner.getChildCount() && !added; i++) {
@@ -141,6 +129,44 @@ public class DragListener implements View.OnDragListener {
         if(mMeasureCounter.getmMC().getMax() == mNoteManager.getNoteManager().stageWeight(ctx.getPosition())) {
             Stave ma = (Stave)ctx.getActivity();
             ma.addStage(null);
+        }
+    }
+
+    private void checkAncestors(Note pNote, int stage) {
+        int pos = 0;
+        char alt = 'O';
+        Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
+        while(it.hasNext()) {
+            Note myNote = it.next();
+            if(myNote.getName() == pNote.getName() && myNote.getOctave() == pNote.getOctave()) {
+                if(myNote.isFlagF() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'F';
+                }
+                if(myNote.isFlagS() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'S';
+                }
+
+                if(myNote.isFlagN() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'N';
+                }
+            }
+        }
+        switch (alt) {
+            case 'F':
+                pNote.setFlagF();
+                break;
+            case 'S':
+                pNote.setFlagS();
+                break;
+            case 'N':
+                pNote.setFlagO();
+                break;
+            default:
+                pNote.setFlagO();
+                break;
         }
     }
 
