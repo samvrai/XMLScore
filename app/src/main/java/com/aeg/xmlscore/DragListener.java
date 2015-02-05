@@ -102,7 +102,6 @@ public class DragListener implements View.OnDragListener {
 
     private void doAdding(String name, float weight, DragEvent event, ViewGroup newOwner, int octave, String type, boolean rest) {
         Note note = new Note(name, weight, ctx.getPosition(), octave, type, rest);
-        checkAncestors(note, ctx.getPosition());
 
         boolean added = false;
         for(int i = 0; i < newOwner.getChildCount() && !added; i++) {
@@ -129,44 +128,6 @@ public class DragListener implements View.OnDragListener {
         if(mMeasureCounter.getmMC().getMax() == mNoteManager.getNoteManager().stageWeight(ctx.getPosition())) {
             Stave ma = (Stave)ctx.getActivity();
             ma.addStage(null);
-        }
-    }
-
-    private void checkAncestors(Note pNote, int stage) {
-        int pos = 0;
-        char alt = 'O';
-        Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
-        while(it.hasNext()) {
-            Note myNote = it.next();
-            if(myNote.getName() == pNote.getName() && myNote.getOctave() == pNote.getOctave()) {
-                if(myNote.isFlagF() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'F';
-                }
-                if(myNote.isFlagS() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'S';
-                }
-
-                if(myNote.isFlagN() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'N';
-                }
-            }
-        }
-        switch (alt) {
-            case 'F':
-                pNote.setFlagF();
-                break;
-            case 'S':
-                pNote.setFlagS();
-                break;
-            case 'N':
-                pNote.setFlagO();
-                break;
-            default:
-                pNote.setFlagO();
-                break;
         }
     }
 

@@ -281,6 +281,7 @@ public class mTools {
         while(it.hasNext()) {
 
             Note note = it.next();
+            this.checkAncestors(note, stage);
             ImageView iv = new ImageView(vg.getContext());
             iv.setId(note.getId());
             iv.setImageBitmap(bitmapper(note.getType(), note.isRest(), vg.getResources()));
@@ -528,6 +529,44 @@ public class mTools {
                 default:
                     return null;
             }
+        }
+    }
+
+    private void checkAncestors(Note pNote, int stage) {
+        int pos = 0;
+        char alt = 'O';
+        Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
+        while(it.hasNext()) {
+            Note myNote = it.next();
+            if(myNote.getName() == pNote.getName() && myNote.getOctave() == pNote.getOctave()) {
+                if(myNote.isFlagF() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'F';
+                }
+                if(myNote.isFlagS() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'S';
+                }
+
+                if(myNote.isFlagN() && myNote.getId() >= pos) {
+                    pos = myNote.getId();
+                    alt = 'N';
+                }
+            }
+        }
+        switch (alt) {
+            case 'F':
+                pNote.setFlagF();
+                break;
+            case 'S':
+                pNote.setFlagS();
+                break;
+            case 'N':
+                pNote.setFlagO();
+                break;
+            default:
+                pNote.setFlagO();
+                break;
         }
     }
 }
