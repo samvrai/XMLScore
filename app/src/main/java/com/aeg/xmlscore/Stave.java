@@ -115,7 +115,7 @@ public class Stave extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
-        openSave();
+
         mNoteManager.getNoteManager().reset();
         finish();
         super.onDestroy();
