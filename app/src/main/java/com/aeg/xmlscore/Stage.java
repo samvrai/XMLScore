@@ -1,11 +1,18 @@
 package com.aeg.xmlscore;
 
-import android.graphics.Canvas;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.widget.LinearLayout;
 
-import java.util.ArrayList;
+import android.os.Bundle;
+
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 
 /**
  * Created by nemo on 9/11/14.
@@ -17,45 +24,146 @@ import java.util.ArrayList;
 
 public class Stage extends Fragment {
 
-    public static final String ARG_OBJECT = "object";
-    private ArrayList<Note> stageNotes;
-    private Canvas stavePiece;
-    private StaveDrawer drawer;
-    private LinearLayout lLayout;
 
-    /**
-     * Will take values of:
-     * -. 0                 When created.
-     * -. Measure>=N>0      Meanwhile.
-     * -. -1                Emptied.
-     */
-    private int howManyNotes = 0;
-
-    public Stage() {
-        this.stageNotes = new ArrayList<Note>();
-        this.stavePiece = new Canvas();
-        this.drawer = new StaveDrawer(this.getActivity());
-        this.lLayout = new LinearLayout(this.getActivity());
-        lLayout.addView(drawer);
-
-    }
+    private int position;
+    private ViewGroup vg;
+    private TextView indexPos;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+            position = (Integer)getArguments().get("POSITION");
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_stave, container, false);
+
+        indexPos = (TextView) v.findViewById(R.id.measurePosition);
+
+        /**
+         * TODO Reformat this.
+         *
+         *
+         */
 
 
-    public int filled() {
-        return this.howManyNotes;
+        ImageView iv = (ImageView) v.findViewById(R.id.am);
+        iv.setOnDragListener(new DragListener(this));
+        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.aMb);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("aM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.bm);
+        iv.setOnDragListener(new DragListener(this));
+        //mNoteManager.getNoteManager().loadPos(new NotePos("bm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.bM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("bM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.bmb);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("bm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.cm);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("cm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.cM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("cM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.cMM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("cMM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.dm);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("dm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.dM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("dM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.dMb);
+        iv.setOnDragListener(new DragListener(this));
+        //mNoteManager.getNoteManager().loadPos(new NotePos("dM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.em);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("em", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.eM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("eM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.emb);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        //mNoteManager.getNoteManager().loadPos(new NotePos("em", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.fm);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("fm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.fM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("fM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.fMb);
+        iv.setOnDragListener(new DragListener(this));
+        //mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.gm);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("gm", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.gM);
+        iv.setOnDragListener(new DragListener(this));
+        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
+        mNoteManager.getNoteManager().loadPos(new NotePos("gM", lp.topMargin));
+
+        iv = (ImageView) v.findViewById(R.id.gmb);
+        iv.setOnDragListener(new DragListener(this));
+        //mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
+
+        vg = (ViewGroup) v.findViewById(R.id.notePlace);
+        updateText();
+
+        mTools.getTools().relocate(position, vg);
+
+        return v;
     }
 
-    public int addNote(Note pNote) {
-        this.stageNotes.add(pNote);
-        return 0;
+    public int getPosition() {
+        return position;
+    }
+
+    public ViewGroup getNotePlace() {
+        return vg;
+    }
+
+    public void updateText() {
+        String str = position + "/" + mNoteManager.getNoteManager().howManyStages();
+        indexPos.setText(str);
     }
 }

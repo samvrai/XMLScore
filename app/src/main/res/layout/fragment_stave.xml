@@ -1,16 +1,351 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".Stave$PlaceholderFragment">
+    android:layout_height="260dp"
+    android:background="#FFFFF0"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/key"
+
+            android:layout_marginTop="75dp"
+            android:src="@drawable/gkey"
+            android:contentDescription="@string/content_eight"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cm"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_cm"
+            android:src="@drawable/blueline2"
+
+
+            android:layout_marginTop="200dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dm"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_dm"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="190dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/em"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/line_em"
+            android:src="@drawable/blackline2"
+
+            android:layout_marginTop="180dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emb"
+
+            android:contentDescription="@string/line_emb"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="180dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fm"
+
+            android:contentDescription="@string/line_fm"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="170dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gm"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_gm"
+            android:src="@drawable/blackline2"
+
+            android:layout_marginTop="160dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gmb"
+
+            android:contentDescription="@string/line_gmb"
+            android:src="@drawable/blueline2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:layout_marginTop="160dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/am"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_am"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="150dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bm"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_bm"
+            android:src="@drawable/blackline2"
+
+            android:layout_marginTop="140dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bmb"
+            android:contentDescription="@string/line_bmb"
+            android:src="@drawable/blueline2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:layout_marginTop="140dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_cmm"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="130dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_d_mm"
+            android:src="@drawable/blackline2"
+
+            android:layout_marginTop="120dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dMb"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_d_mmb"
+            android:src="@drawable/blueline2"
+
+            android:layout_marginTop="120dp"
+            android:visibility="visible"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_e_mm"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="110dp"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_f_mm"
+            android:src="@drawable/blackline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="100dp"
+            android:focusable="true"
+            android:alpha="0.3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fMb"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_f_mmb"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="100dp"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_g_mm"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="90dp"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/aMb"
+
+            android:contentDescription="@string/line_a_mmb"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="80dp"
+            android:focusable="true"
+            android:alpha="0.0"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_b_mm"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="70dp"
+            android:focusable="true"
+            android:alpha="0.0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cMM"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:contentDescription="@string/line_cmmm"
+            android:src="@drawable/blueline2"
+            android:visibility="visible"
+
+            android:layout_marginTop="60dp"
+            android:focusable="true"
+            android:alpha="0.0" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/notePlace">
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/section_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/measurePosition"
+        android:layout_marginTop="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/division"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+
+        android:contentDescription="@string/line_d_mm"
+        android:src="@drawable/blackline2"
+
+        android:layout_marginTop="256dp"
+        android:visibility="visible"
+        android:focusable="true"
+        android:alpha="1" />
 
 </RelativeLayout>

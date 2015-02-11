@@ -21,50 +21,54 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/select_text_main_clef"
-        android:id="@+id/clef"
-        android:layout_marginTop="97dp"
-        android:layout_marginLeft="37dp"
-        android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/select_text_main_key"
+        android:id="@+id/textClef"
+        android:layout_marginTop="80dp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerKey"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/select_text_main_measure"
-        android:id="@+id/measure"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/clef"
-        android:layout_alignStart="@+id/clef" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerClef"
-        android:layout_below="@+id/clef"
-        android:layout_alignLeft="@+id/clef"
-        android:layout_alignStart="@+id/clef" />
+        android:id="@+id/textMeasure"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerMeasure"
-        android:layout_below="@+id/measure"
-        android:layout_alignLeft="@+id/measure"
-        android:layout_alignStart="@+id/measure" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="80dp"
         android:text="@string/button_main"
         android:id="@+id/bNewStave"
-        android:layout_below="@+id/spinnerMeasure"
-        android:layout_alignRight="@+id/title"
-        android:layout_alignEnd="@+id/title"
-        android:layout_marginTop="59dp"
-        android:onClick="newStave"/>
+        android:onClick="newStave"
+        android:layout_marginTop="400dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:enabled="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/staveName"
+        android:layout_marginTop="330dp"
+        android:layout_centerHorizontal="true"
+        android:inputType="text"
+        android:text="@string/insert_name" />
 
 </RelativeLayout>

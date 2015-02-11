@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-f608077d1336cc61323a205148aaf9ff86ebb36a.jar"
-        jar="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
+        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/classes-b978c8dc87f27f998843c2921ed72d279418c0b5.jar" />
+    </item>
     <item
-        dex="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-adcb9ddae320faae001ae208d43ea7e0adc63a89.jar"
-        jar="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jar="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-a7e4777d391a2dcc311e7a161643f2ec2e3736b6.jar" />
+    </item>
     <item
-        dex="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/pre-dexed/debug/classes-e7c5254032f42927ab631693ee419369eef8d0a8.jar"
-        jar="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/classes.jar"
+        jar="/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
-    <item
-        dex="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-fa2f697241688ca8211fbdad525cf6620893da09.jar"
-        jar="/home/nemo/android-sdks/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
-        dex="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/pre-dexed/debug/classes-903bead4a2b03ff73cebff46c0377ed0cfcf82ba.jar"
-        jar="/home/nemo/AndroidStudioProjects/XMLScore/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/media/almacen/Documentos/TFG/XMLScore/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-1e9bba1e7979125665c442d859d2bfa58fa53060.jar" />
+    </item>
 
-</pre-dex-items>
+</items>

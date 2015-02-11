@@ -1,44 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:background="#0010B286"
     android:orientation="vertical">
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp">
-
-        <TextView
-            android:layout_width="137dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/clef"
-            android:layout_gravity="start" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/title" />
-
-    </LinearLayout>
-
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:id="@+id/lStave"
-        android:background="#FAF3C1"/>
+        />
 
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/lNotes"
         android:layout_width="match_parent"
-        android:layout_height="225dp"
-        tools:context=".Stave"
-        android:background="#ffb6ffdf" />
-
+        android:layout_height="fill_parent"
+        tools:context=".Stave"/>
 </LinearLayout>
