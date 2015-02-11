@@ -17,37 +17,27 @@ import android.widget.Toast;
  */
 public class ClickListener implements View.OnClickListener {
 
-    private Context ctx;
-    private Note note;
-    CheckBox cDotted, cNatural;
-    RadioButton alterN, alterS, alterF;
 
-
-    public ClickListener(Context ctx) {
-        this.ctx = ctx;
-        cDotted = (CheckBox)((FragmentActivity)ctx).findViewById(R.id.dotted);
-        cNatural = (CheckBox)((FragmentActivity)ctx).findViewById(R.id.natural);
-        alterN = (RadioButton)((FragmentActivity)ctx).findViewById(R.id.normal);
-        alterF = (RadioButton)((FragmentActivity)ctx).findViewById(R.id.flat);
-        alterS = (RadioButton)((FragmentActivity)ctx).findViewById(R.id.sharp);
+    public ClickListener() {
     }
 
     @Override
     public void onClick(View v) {
-        note = mNoteManager.getNoteManager().getNoteById(v.getId());
-        mNoteManager.getNoteManager().setInTransaction(note);
+        NotesAdapter na =AdapterManager.getMaM().getnAdapter();
+        Note note = mNoteManager.getNoteManager().getNoteById(v.getId());
         if(mNoteManager.getNoteManager().getInTransaction().isRest()) {
-            alterN.setEnabled(false);
-            alterF.setEnabled(false);
-            alterS.setEnabled(false);
-            cDotted.setEnabled(false);
-            cNatural.setEnabled(false);
+
+            na.getAlterN().setEnabled(false);
+            na.getAlterF().setEnabled(false);
+            na.getcDotted().setEnabled(false);
+            na.getAlterS().setEnabled(false);
+            na.getcNatural().setEnabled(false);
         } else {
-            alterN.setEnabled(true);
-            alterF.setEnabled(true);
-            alterS.setEnabled(true);
-            cDotted.setEnabled(true);
-            cNatural.setEnabled(true);
+            na.getAlterN().setEnabled(true);
+            na.getAlterF().setEnabled(true);
+            na.getAlterS().setEnabled(true);
+            na.getcDotted().setEnabled(true);
+            na.getcNatural().setEnabled(true);
         }
 
         ViewGroup vg = (ViewGroup)v.getParent();
@@ -55,31 +45,31 @@ public class ClickListener implements View.OnClickListener {
             vg.getChildAt(i).setBackground(null);
         }
 
-        cDotted.setChecked(false);
-        cNatural.setChecked(false);
+        na.getcDotted().setChecked(false);
+        na.getcNatural().setChecked(false);
 
-        v.setBackground(ctx.getResources().getDrawable(R.drawable.shape));
+        v.setBackground(vg.getResources().getDrawable(R.drawable.shape));
 
         if(note.isFlagD()) {
-            cDotted.setChecked(true);
+            na.getcDotted().setChecked(true);
         }
         if(note.isFlagN()) {
-            cNatural.setChecked(true);
+            na.getcNatural().setChecked(true);
         }
         if(note.isFlagS()) {
-            alterS.setChecked(true);
-            alterF.setChecked(false);
-            alterN.setChecked(false);
+            na.getAlterS().setChecked(true);
+            na.getAlterF().setChecked(false);
+            na.getAlterN().setChecked(false);
         }
         if(note.isFlagF()) {
-            alterS.setChecked(false);
-            alterF.setChecked(true);
-            alterN.setChecked(false);
+            na.getAlterS().setChecked(false);
+            na.getAlterF().setChecked(true);
+            na.getAlterN().setChecked(false);
         }
         if(note.isFlagO()) {
-            alterS.setChecked(false);
-            alterF.setChecked(false);
-            alterN.setChecked(true);
+            na.getAlterS().setChecked(false);
+            na.getAlterF().setChecked(false);
+            na.getAlterN().setChecked(true);
         }
 
         AdapterManager.getMaM().getNotesPager().setCurrentItem(2);

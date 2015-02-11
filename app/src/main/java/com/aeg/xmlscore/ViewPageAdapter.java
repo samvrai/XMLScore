@@ -20,7 +20,6 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
     public ViewPageAdapter(FragmentManager fm, Context ctx) {
         super(fm);
         this.ctx = ctx;
-        this.addStage();
 
     }
 
@@ -31,23 +30,21 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
 
     @Override
     public int getCount() {
-
         return this.myStages.size();
     }
 
     public void addStage() {
-        //Toast.makeText(ctx, String.valueOf(myStages.size() + 1), Toast.LENGTH_SHORT).show();
         Stage stg = new Stage();
         Bundle bundle = new Bundle();
         bundle.putInt("POSITION", myStages.size() + 1);
         stg.setArguments(bundle);
         this.myStages.add(stg);
         this.notifyDataSetChanged();
-        //this.setPrimaryItem(, myStages.size(),);
     }
 
     public void remove() {
         this.myStages.remove(myStages.size() - 1);
+        this.notifyDataSetChanged();
     }
 
 

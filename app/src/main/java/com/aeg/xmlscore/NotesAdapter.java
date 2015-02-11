@@ -3,6 +3,8 @@ package com.aeg.xmlscore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 
 import java.util.ArrayList;
 
@@ -33,4 +35,22 @@ public class NotesAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return notePages.size();
     }
+
+    public CheckBox getcNatural() {
+        return ((NoteDrawerAlter)notePages.get(2)).getcNatural();
+    }
+
+    public RadioButton getAlterN() {
+        return ((NoteDrawerAlter)notePages.get(2)).getAlterN();
+    }
+
+    public RadioButton getAlterS() {
+        return ((NoteDrawerAlter)notePages.get(2)).getAlterS();
+    }
+
+    public RadioButton getAlterF() {
+        return ((NoteDrawerAlter)notePages.get(2)).getAlterF();
+    }
+
+    public CheckBox getcDotted() { return ((NoteDrawerAlter)notePages.get(2)).getcDotted();}
 }

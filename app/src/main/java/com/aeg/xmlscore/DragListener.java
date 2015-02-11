@@ -1,14 +1,11 @@
 package com.aeg.xmlscore;
 
-
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.Iterator;
 
 /**
  * Created by will on 20/11/14.
@@ -82,9 +79,6 @@ public class DragListener implements View.OnDragListener {
                  * Apply correction to image situation. Image positioning is made by (Upper, Left) corner.
                  * To center it, correction is needed.
                  */
-                //Toast.makeText(ctx.getActivity(), iv.getHeight() + " " + iv.getWidth(), Toast.LENGTH_SHORT).show();
-
-                //Toast.makeText(ctx.getActivity(), name, Toast.LENGTH_SHORT).show();
 
                 if(mMeasureCounter.getmMC().check(weight, mNoteManager.getNoteManager().stageWeight(ctx.getPosition()))) {
                     this.doAdding(name, weight, event, newOwner, octave, type, rest);
@@ -123,7 +117,6 @@ public class DragListener implements View.OnDragListener {
         AdapterManager.getMaM().updateTexts();
 
         mTools.getTools().relocate(this.ctx.getPosition(), newOwner);
-        //Toast.makeText(ctx.getActivity(), String.valueOf(iv.getY()), Toast.LENGTH_SHORT).show();
 
         if(mMeasureCounter.getmMC().getMax() == mNoteManager.getNoteManager().stageWeight(ctx.getPosition())) {
             Stave ma = (Stave)ctx.getActivity();

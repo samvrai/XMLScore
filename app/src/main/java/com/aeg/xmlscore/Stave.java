@@ -113,14 +113,14 @@ public class Stave extends FragmentActivity {
 
     public void addStage(View v) {
         AdapterManager.getMaM().getpAdapter().addStage();
-        //AdapterManager.getMaM().getVpager().setCurrentItem(AdapterManager.getMaM().getpAdapter().getCount() - 1);
-        //Toast.makeText(getApplicationContext(), "Button clicked", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     protected void onDestroy() {
         openSave();
+        mNoteManager.getNoteManager().reset();
+        finish();
         super.onDestroy();
     }
 
@@ -170,7 +170,7 @@ public class Stave extends FragmentActivity {
     }
 
     public void removeNote(View v) {
-        ViewGroup vg = (ViewGroup)findViewById(R.id.notePlace);
+        ViewGroup vg = ((Stage)AdapterManager.getMaM().getpAdapter().getItem(AdapterManager.getMaM().getVpager().getCurrentItem())).getNotePlace();
         for(int i = 0; i < vg.getChildCount(); i++) {
             if(vg.getChildAt(i).getId() == mNoteManager.getNoteManager().getInTransaction().getId()) {
                 vg.removeViewAt(i);
@@ -181,5 +181,11 @@ public class Stave extends FragmentActivity {
 
         mTools.getTools().relocate(stage, vg);
         AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
+
+        if(mNoteManager.getNoteManager().notesAtStage(AdapterManager.getMaM().getVpager().getCurrentItem() + 1).size() == 0 && mNoteManager.getNoteManager().howManyStages() > 1) {
+            AdapterManager.getMaM().getpAdapter().remove();
+        }
+
+        AdapterManager.getMaM().updateTexts();
     }
 }

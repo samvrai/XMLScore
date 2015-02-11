@@ -80,27 +80,31 @@ public class Writer {
             bw.write("\t\t</score-part>\n");
             bw.write("\t</part-list>\n\n");
             bw.write("\t<part id=\"P1\">\n");
+            boolean done = false;
             for(int i = 1; i <= mNoteManager.getNoteManager().howManyStages() && mNoteManager.getNoteManager().notesAtStage(i).size() > 0; i++) {
                 bw.write("\t\t<measure number=\"" + i + "\">\n");
-                bw.write("\t\t\t<attributes>\n");
-                bw.write("\t\t\t\t<divisions>" + _div + "</divisions>\n");
-                bw.write("\t\t\t\t<key>\n");
-                if(mMeasureCounter.getmMC().getKey() == 0) {
-                    bw.write("\t\t\t\t\t<fifths>0</fifths>\n");
-                } else {
-                    bw.write("\t\t\t\t\t<fifths>" + mMeasureCounter.getmMC().getKey() + "</fifths>\n");
-                    bw.write("\t\t\t\t\t<mode>major</mode>\n");
+                if(!done) {
+                    bw.write("\t\t\t<attributes>\n");
+                    bw.write("\t\t\t\t<divisions>" + _div + "</divisions>\n");
+                    bw.write("\t\t\t\t<key>\n");
+                    if (mMeasureCounter.getmMC().getKey() == 0) {
+                        bw.write("\t\t\t\t\t<fifths>0</fifths>\n");
+                    } else {
+                        bw.write("\t\t\t\t\t<fifths>" + mMeasureCounter.getmMC().getKey() + "</fifths>\n");
+                        bw.write("\t\t\t\t\t<mode>major</mode>\n");
+                    }
+                    bw.write("\t\t\t\t</key>\n");
+                    bw.write("\t\t\t\t<time>\n");
+                    bw.write("\t\t\t\t\t<beats>" + mMeasureCounter.getmMC().getNum() + "</beats>\n");
+                    bw.write("\t\t\t\t\t<beat-type>" + mMeasureCounter.getmMC().getDen() + "</beat-type>\n");
+                    bw.write("\t\t\t\t</time>\n");
+                    bw.write("\t\t\t\t<clef>\n");
+                    bw.write("\t\t\t\t\t<sign>G</sign>\n");
+                    bw.write("\t\t\t\t\t<line>2</line>\n");
+                    bw.write("\t\t\t\t</clef>\n");
+                    bw.write("\t\t\t</attributes>\n");
+                    done = true;
                 }
-                bw.write("\t\t\t\t</key>\n");
-                bw.write("\t\t\t\t<time>\n");
-                bw.write("\t\t\t\t\t<beats>" + mMeasureCounter.getmMC().getNum() + "</beats>\n");
-                bw.write("\t\t\t\t\t<beat-type>" + mMeasureCounter.getmMC().getDen() + "</beat-type>\n");
-                bw.write("\t\t\t\t</time>\n");
-                bw.write("\t\t\t\t<clef>\n");
-                bw.write("\t\t\t\t\t<sign>G</sign>\n");
-                bw.write("\t\t\t\t\t<line>2</line>\n");
-                bw.write("\t\t\t\t</clef>\n");
-                bw.write("\t\t\t</attributes>\n");
                 Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(i).iterator();
                 Note note = null;
                 double xarray = 109.14;

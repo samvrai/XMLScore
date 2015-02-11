@@ -281,7 +281,6 @@ public class mTools {
         while(it.hasNext()) {
 
             Note note = it.next();
-            this.checkAncestors(note, stage);
             ImageView iv = new ImageView(vg.getContext());
             iv.setId(note.getId());
             iv.setImageBitmap(bitmapper(note.getType(), note.isRest(), vg.getResources()));
@@ -292,7 +291,7 @@ public class mTools {
             iv.setX(accumulate -150);
             iv.setContentDescription(vg.getContext().getString(R.string.added_notes));
 
-            iv.setOnClickListener(new ClickListener(vg.getContext()));
+            iv.setOnClickListener(new ClickListener());
 
             if(!note.isRest()) {
 
@@ -321,36 +320,7 @@ public class mTools {
                     lc.setY(600);
                     vg.addView(lc);
                 }
-                if(note.getOctave() == 4 && note.getName() == "D") {
-                    ImageView ld = new ImageView(vg.getContext());
-                    Bitmap bmd = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
-                    ld.setImageBitmap(bmd);
 
-                    if(note.getType() == "whole") {
-                        ld.setScaleX(0.1f);
-                        ld.setX(iv.getX() - 482);
-                    } else {
-                        ld.setScaleX(0.09f);
-                        ld.setX(iv.getX() - 490);
-                    }
-                    ld.setY(570);
-                    vg.addView(ld);
-                }
-                if(note.getOctave() == 5 && note.getName() == "G") {
-                    ImageView lg = new ImageView(vg.getContext());
-                    Bitmap bmg = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
-                    lg.setImageBitmap(bmg);
-
-                    if(note.getType() == "whole") {
-                        lg.setScaleX(0.1f);
-                        lg.setX(iv.getX() - 452);
-                    } else {
-                        lg.setScaleX(0.09f);
-                        lg.setX(iv.getX() - 444);
-                    }
-                    lg.setY(270);
-                    vg.addView(lg);
-                }
                 if(note.getOctave() == 5 && note.getName() == "A") {
                     ImageView la = new ImageView(vg.getContext());
                     Bitmap bma = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
@@ -366,21 +336,7 @@ public class mTools {
                     la.setY(240);
                     vg.addView(la);
                 }
-                if(note.getOctave() == 5 && note.getName() == "B") {
-                    ImageView lb = new ImageView(vg.getContext());
-                    Bitmap bmb = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
-                    lb.setImageBitmap(bmb);
 
-                    if(note.getType() == "whole") {
-                        lb.setScaleX(0.1f);
-                        lb.setX(iv.getX() - 452);
-                    } else {
-                        lb.setScaleX(0.09f);
-                        lb.setX(iv.getX() - 444);
-                    }
-                    lb.setY(210);
-                    vg.addView(lb);
-                }
                 if(note.getOctave() == 6 && note.getName() == "C") {
                     ImageView lc2 = new ImageView(vg.getContext());
                     Bitmap bmc2 = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
@@ -529,44 +485,6 @@ public class mTools {
                 default:
                     return null;
             }
-        }
-    }
-
-    private void checkAncestors(Note pNote, int stage) {
-        int pos = 0;
-        char alt = 'O';
-        Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
-        while(it.hasNext()) {
-            Note myNote = it.next();
-            if(myNote.getName() == pNote.getName() && myNote.getOctave() == pNote.getOctave()) {
-                if(myNote.isFlagF() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'F';
-                }
-                if(myNote.isFlagS() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'S';
-                }
-
-                if(myNote.isFlagN() && myNote.getId() >= pos) {
-                    pos = myNote.getId();
-                    alt = 'N';
-                }
-            }
-        }
-        switch (alt) {
-            case 'F':
-                pNote.setFlagF();
-                break;
-            case 'S':
-                pNote.setFlagS();
-                break;
-            case 'N':
-                pNote.setFlagO();
-                break;
-            default:
-                pNote.setFlagO();
-                break;
         }
     }
 }

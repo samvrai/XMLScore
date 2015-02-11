@@ -206,4 +206,8 @@ public class mNoteManager {
 
         return String.valueOf(search("cm"));
     }
+
+    public void reset() {
+        mNM = null;
+    }
 }

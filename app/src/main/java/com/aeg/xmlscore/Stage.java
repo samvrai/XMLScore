@@ -149,7 +149,7 @@ public class Stage extends Fragment {
         vg = (ViewGroup) v.findViewById(R.id.notePlace);
         updateText();
 
-        mTools.getTools().relocate(position, (ViewGroup)v.findViewById(R.id.notePlace));
+        mTools.getTools().relocate(position, vg);
 
         return v;
     }
