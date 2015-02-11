@@ -4,6 +4,7 @@ package com.aeg.xmlscore;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -15,7 +16,7 @@ import java.util.Iterator;
 public class mTools {
 
     private static mTools mtools = null;
-    private final int MEASURE = 880;
+    private final int MEASURE = 900;
     private String name;
 
     private mTools() {
@@ -270,9 +271,13 @@ public class mTools {
         Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
 
         float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
-        float accumulate = 200;
+        float accumulate = 0;
 
         vg.removeAllViews();
+        if(stage == 1) {
+            keyPrint(((Stage)AdapterManager.getMaM().getpAdapter().getItem(stage - 1)).getLinesPlace());
+            accumulate = 280;
+        }
 
         while(it.hasNext()) {
 
@@ -482,5 +487,55 @@ public class mTools {
                     return null;
             }
         }
+    }
+
+    private void keyPrint(ViewGroup viewg) {
+        int key = mMeasureCounter.getmMC().getKey();
+        ImageView iv = new ImageView(viewg.getContext());
+        Bitmap bmp = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.gkey);
+        iv.setImageBitmap(bmp);
+        iv.setX(10);
+        iv.setY(225);
+        viewg.addView(iv);
+
+        ImageView imNum = new ImageView(viewg.getContext());
+        ImageView imDen = new ImageView(viewg.getContext());
+        Bitmap bitmap;
+        switch (mMeasureCounter.getmMC().getNum()) {
+            case 2:
+                bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num2);
+                break;
+            case 3:
+                bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num3);
+                break;
+            case 4:
+                bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num4);
+                break;
+            case 6:
+                bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num6);
+                break;
+            case 9:
+                bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num9);
+                break;
+            default:
+                bitmap = null;
+                break;
+        }
+        imNum.setImageBitmap(bitmap);
+        if(mMeasureCounter.getmMC().getDen() == 4) {
+            bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num4);
+        } else if(mMeasureCounter.getmMC().getDen() == 8) {
+            bitmap = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.num8);
+        }
+        imDen.setImageBitmap(bitmap);
+
+        imNum.setX(170);
+        imNum.setY(300);
+
+        imDen.setX(170);
+        imDen.setY(420);
+
+        viewg.addView(imNum);
+        viewg.addView(imDen);
     }
 }

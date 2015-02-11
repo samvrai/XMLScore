@@ -1,6 +1,8 @@
 package com.aeg.xmlscore;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,7 +25,7 @@ public class Stage extends Fragment {
 
 
     private int position;
-    private ViewGroup vg;
+    private ViewGroup vg, lineGroup;
     private TextView indexPos;
 
     @Override
@@ -45,7 +47,6 @@ public class Stage extends Fragment {
          *
          *
          */
-
 
         ImageView iv = (ImageView) v.findViewById(R.id.am);
         iv.setOnDragListener(new DragListener(this));
@@ -143,9 +144,9 @@ public class Stage extends Fragment {
         iv.setOnDragListener(new DragListener(this));
         //mNoteManager.getNoteManager().loadPos(new NotePos("am", lp.topMargin));
 
+        lineGroup = (ViewGroup) v.findViewById(R.id.noteLines);
         vg = (ViewGroup) v.findViewById(R.id.notePlace);
         updateText();
-
         mTools.getTools().relocate(position, vg);
 
         return v;
@@ -157,6 +158,9 @@ public class Stage extends Fragment {
 
     public ViewGroup getNotePlace() {
         return vg;
+    }
+    public ViewGroup getLinesPlace() {
+        return lineGroup;
     }
 
     public void updateText() {
