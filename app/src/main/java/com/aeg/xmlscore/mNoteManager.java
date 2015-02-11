@@ -1,9 +1,6 @@
 package com.aeg.xmlscore;
 
-import android.content.Context;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Iterator;

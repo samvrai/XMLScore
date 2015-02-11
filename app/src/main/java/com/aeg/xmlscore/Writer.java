@@ -3,13 +3,11 @@ package com.aeg.xmlscore;
 
 import android.content.Context;
 import android.os.Environment;
-import android.util.JsonReader;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +16,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 

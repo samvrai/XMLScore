@@ -1,7 +1,5 @@
 package com.aeg.xmlscore;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by nemo on 9/11/14.
  *
