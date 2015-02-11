@@ -7,6 +7,7 @@ import android.view.View;
 
 /**
  * Created by will on 19/11/14.
+ *
  */
 public class LCListener implements View.OnLongClickListener {
 

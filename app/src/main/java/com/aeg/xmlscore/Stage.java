@@ -111,8 +111,6 @@ public class Stage extends Fragment {
 
         iv = (ImageView) v.findViewById(R.id.emb);
         iv.setOnDragListener(new DragListener(this));
-        lp = (RelativeLayout.LayoutParams)iv.getLayoutParams();
-        //mNoteManager.getNoteManager().loadPos(new NotePos("em", lp.topMargin));
 
         iv = (ImageView) v.findViewById(R.id.fm);
         iv.setOnDragListener(new DragListener(this));

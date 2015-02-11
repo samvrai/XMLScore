@@ -36,9 +36,6 @@ public class Start extends Activity {
         // Apply the adapter to the spinner
         sMeasure.setAdapter(adapter2);
         sMeasure.setSelection(4);
-
-        EditText et = (EditText) findViewById(R.id.staveName);
-
     }
 
 

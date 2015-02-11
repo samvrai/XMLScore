@@ -22,6 +22,7 @@ import java.util.Iterator;
 /**
  * Created by will on 9/12/14.
  *
+ *
  */
 public class Writer {
     private static Writer mWriter;
@@ -103,7 +104,7 @@ public class Writer {
                     done = true;
                 }
                 Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(i).iterator();
-                Note note = null;
+                Note note;
                 double xarray = 109.14;
                 while(it.hasNext()) {
                     note = it.next();

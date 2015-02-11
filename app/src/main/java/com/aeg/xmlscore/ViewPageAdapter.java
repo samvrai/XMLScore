@@ -1,6 +1,5 @@
 package com.aeg.xmlscore;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,16 +9,14 @@ import java.util.ArrayList;
 
 /**
  * Created by nemo on 9/12/14.
+ *
  */
 public class ViewPageAdapter extends FragmentStatePagerAdapter{
 
     private ArrayList<Stage> myStages = new ArrayList<Stage>();
-    private Context ctx;
 
-    public ViewPageAdapter(FragmentManager fm, Context ctx) {
+    public ViewPageAdapter(FragmentManager fm) {
         super(fm);
-        this.ctx = ctx;
-
     }
 
     @Override

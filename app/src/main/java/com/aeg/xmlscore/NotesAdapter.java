@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Created by will on 19/11/14.
+ *
  */
 public class NotesAdapter extends FragmentPagerAdapter {
 

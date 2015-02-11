@@ -30,7 +30,7 @@ public class Stave extends FragmentActivity {
         NotesAdapter nAdapter;
         ViewPager vpager, notesPager;
 
-        pAdapter = new ViewPageAdapter(getSupportFragmentManager(), this);
+        pAdapter = new ViewPageAdapter(getSupportFragmentManager());
 
         vpager = (ViewPager) findViewById(R.id.lStave);
         vpager.setAdapter(pAdapter);

@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 /**
  * Created by will on 24/11/14.
+ *
  */
 public class mNoteManager {
 
@@ -38,9 +39,9 @@ public class mNoteManager {
     public void addNote(Note pNote, int index) { this.noteList.add(index, pNote);}
 
     public ArrayList<Note> notesAtStage(int stage) {
-        ArrayList<Note> result = new ArrayList<Note>();
+        ArrayList<Note> result = new ArrayList<>();
         Iterator<Note> it = this.noteList.iterator();
-        Note note = null;
+        Note note;
 
         while(it.hasNext()) {
             note = it.next();
@@ -55,7 +56,7 @@ public class mNoteManager {
     public int getStageSize(int stage) {
         int res = 0;
         Iterator<Note> it = this.noteList.iterator();
-        Note note = null;
+        Note note;
 
         while(it.hasNext()) {
             note = it.next();
@@ -88,7 +89,7 @@ public class mNoteManager {
         Iterator<Note> it = notesAtStage(stage).iterator();
         float total = 0;
 
-        Note dummy = null;
+        Note dummy;
         while(it.hasNext()) {
             dummy = it.next();
             total += dummy.getWeight();
@@ -98,14 +99,12 @@ public class mNoteManager {
     }
 
     private float search(String pNom) {
-        Log.v("POS", "2");
         Iterator<NotePos> it = this.notePoses.iterator();
         float result = 0;
         boolean found = false;
-        NotePos np = null;
+        NotePos np;
         while(it.hasNext() && !found) {
             np = it.next();
-            //Log.v("Flag",np.getName() + " " + this.notePoses.size() + " " + np.getPosition());
             if(np.getName().equals(pNom)) {
                 found = true;
                 result = np.getPosition();
@@ -192,16 +191,6 @@ public class mNoteManager {
 
     public void setInTransaction(Note pNote) {
         this.inTransaction = pNote;
-    }
-
-    public String routine() {
-        Iterator<NotePos> inp = notePoses.iterator();
-        while (inp.hasNext()) {
-            NotePos np = inp.next();
-            Log.v(np.getName(), String.valueOf(np.getPosition()));
-        }
-
-        return String.valueOf(search("cm"));
     }
 
     public void reset() {

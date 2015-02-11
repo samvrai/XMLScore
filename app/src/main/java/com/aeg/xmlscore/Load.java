@@ -74,7 +74,7 @@ public class Load extends Activity {
 
     private void refresh() {
         al = Writer.getmWriter().loadStaves(this);
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, al);
 
         ListView loadList = (ListView)findViewById(R.id.loadableList);
         loadList.setAdapter(arrayAdapter);

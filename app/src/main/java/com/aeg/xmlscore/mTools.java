@@ -11,6 +11,7 @@ import java.util.Iterator;
 
 /**
  * Created by will on 25/11/14.
+ *
  */
 public class mTools {
 
@@ -304,12 +305,12 @@ public class mTools {
                     y -= 268;
                 }
                 iv.setY(y);
-                if(note.getOctave() == 4 && note.getName() == "C") {
+                if(note.getOctave() == 4 && note.getName().equals("C")) {
                     ImageView lc = new ImageView(vg.getContext());
                     Bitmap bmc = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lc.setImageBitmap(bmc);
 
-                    if(note.getType() == "whole") {
+                    if(note.getType().equals("whole")) {
                         lc.setScaleX(0.1f);
                         lc.setX(iv.getX() - 482);
                     } else {
@@ -321,12 +322,12 @@ public class mTools {
                     vg.addView(lc);
                 }
 
-                if(note.getOctave() == 5 && note.getName() == "A") {
+                if(note.getOctave() == 5 && note.getName().equals("A")) {
                     ImageView la = new ImageView(vg.getContext());
                     Bitmap bma = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     la.setImageBitmap(bma);
 
-                    if(note.getType() == "whole") {
+                    if(note.getType().equals("whole")) {
                         la.setScaleX(0.1f);
                         la.setX(iv.getX() - 452);
                     } else {
@@ -337,12 +338,12 @@ public class mTools {
                     vg.addView(la);
                 }
 
-                if(note.getOctave() == 6 && note.getName() == "C") {
+                if(note.getOctave() == 6 && note.getName().equals("C")) {
                     ImageView lc2 = new ImageView(vg.getContext());
                     Bitmap bmc2 = BitmapFactory.decodeResource(vg.getResources(), R.drawable.blackline2);
                     lc2.setImageBitmap(bmc2);
                     lc2.setScaleX(0.1f);
-                    if(note.getType() == "whole") {
+                    if(note.getType().equals("whole")) {
                         lc2.setScaleX(0.1f);
                         lc2.setX(iv.getX() - 452);
                     } else {
@@ -489,7 +490,7 @@ public class mTools {
     }
 
     private void keyPrint(ViewGroup viewg) {
-        int key = mMeasureCounter.getmMC().getKey();
+        //int key = mMeasureCounter.getmMC().getKey();
         ImageView iv = new ImageView(viewg.getContext());
         Bitmap bmp = BitmapFactory.decodeResource(viewg.getResources(), R.drawable.gkey);
         iv.setImageBitmap(bmp);
