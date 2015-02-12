@@ -4,6 +4,7 @@ package com.aeg.xmlscore;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -395,8 +396,14 @@ public class mTools {
                 altS.setImageBitmap(bm);
                 altS.setScaleX(0.7f);
                 altS.setScaleY(0.7f);
-                altS.setX(iv.getX() - 45);
-                altS.setY(iv.getY() + 180);
+                if(note.getOctave() < 5 && !note.getName().equals("B")) {
+                    altS.setY(iv.getY() + 180);
+                    altS.setX(iv.getX() - 45);
+                } else {
+                    altS.setY(iv.getY() - 30);
+                    altS.setX(iv.getX() - 0);
+                }
+
                 vg.addView(altS);
             }
             if(note.isFlagF()) {
@@ -405,8 +412,13 @@ public class mTools {
                 altS.setImageBitmap(bm);
                 altS.setScaleX(0.7f);
                 altS.setScaleY(0.7f);
-                altS.setX(iv.getX() - 40);
-                altS.setY(iv.getY() + 170);
+                if(note.getOctave() < 5 && !note.getName().equals("B")) {
+                    altS.setY(iv.getY() + 170);
+                    altS.setX(iv.getX() - 40);
+                } else {
+                    altS.setY(iv.getY() - 45);
+                    altS.setX(iv.getX() - 0);
+                }
                 vg.addView(altS);
             }
             if(note.isFlagD()) {
@@ -415,8 +427,13 @@ public class mTools {
                 altS.setImageBitmap(bm);
                 altS.setScaleX(0.8f);
                 altS.setScaleY(0.8f);
-                altS.setX(iv.getX() + 80);
-                altS.setY(iv.getY() + 260);
+                if(note.getOctave() < 5 && !note.getName().equals("B")) {
+                    altS.setY(iv.getY() + 260);
+                    altS.setX(iv.getX() + 80);
+                } else {
+                    altS.setY(iv.getY() + 45);
+                    altS.setX(iv.getX() + 130);
+                }
                 vg.addView(altS);
             }
             if(note.isFlagN()) {
@@ -425,8 +442,13 @@ public class mTools {
                 altS.setImageBitmap(bm);
                 altS.setScaleX(0.7f);
                 altS.setScaleY(0.7f);
-                altS.setX(iv.getX() - 35);
-                altS.setY(iv.getY() + 193);
+                if(note.getOctave() < 5 && !note.getName().equals("B")) {
+                    altS.setX(iv.getX() - 35);
+                    altS.setY(iv.getY() + 193);
+                } else {
+                    altS.setY(iv.getY() -30);
+                    altS.setX(iv.getX() + 15);
+                }
                 vg.addView(altS);
             }
             vg.addView(iv);
