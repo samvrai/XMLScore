@@ -4,7 +4,6 @@ package com.aeg.xmlscore;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -17,7 +16,6 @@ import java.util.Iterator;
 public class mTools {
 
     private static mTools mtools = null;
-    private final int MEASURE = 900;
     private String name;
 
     private mTools() {
@@ -270,15 +268,18 @@ public class mTools {
     public void relocate(int stage, ViewGroup vg) {
 
         Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
-
-        float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
         float accumulate = 0;
-
+        final int MEASURE;
         vg.removeAllViews();
         if(stage == 1) {
             keyPrint(((Stage)AdapterManager.getMaM().getpAdapter().getItem(stage - 1)).getLinesPlace());
             accumulate = 280;
+            MEASURE = 900;
+        } else {
+            MEASURE = 1050;
+            accumulate = 0;
         }
+        float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
 
         while(it.hasNext()) {
 

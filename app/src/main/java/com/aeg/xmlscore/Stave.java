@@ -87,8 +87,6 @@ public class Stave extends FragmentActivity {
             e.printStackTrace();
         }
         Writer.getmWriter().saveJson(noteList, mTools.getTools().getName(), this);
-
-        Writer.getmWriter().export(mTools.getTools().getName(), this);
     }
 
     @Override
@@ -99,7 +97,7 @@ public class Stave extends FragmentActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_saving:
-                openSave();
+                Writer.getmWriter().export(mTools.getTools().getName(), this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -113,7 +111,7 @@ public class Stave extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
-
+        openSave();
         mNoteManager.getNoteManager().reset();
         finish();
         super.onDestroy();

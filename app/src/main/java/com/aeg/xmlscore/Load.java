@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,8 +69,13 @@ public class Load extends Activity {
 
     public void load(View v) {
         Writer.getmWriter().populate(((TextView)findViewById(R.id.filename)).getText().toString(), this);
-        Intent intent = new Intent(this, Stave.class);
-        startActivity(intent);
+        if(!((TextView)findViewById(R.id.filename)).getText().toString().equals("")) {
+            Intent intent = new Intent(this, Stave.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "No file has been selected", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void refresh() {
