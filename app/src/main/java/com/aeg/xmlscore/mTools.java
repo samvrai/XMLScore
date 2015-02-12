@@ -268,7 +268,7 @@ public class mTools {
     public void relocate(int stage, ViewGroup vg) {
 
         Iterator<Note> it = mNoteManager.getNoteManager().notesAtStage(stage).iterator();
-        float accumulate = 0;
+        float accumulate;
         final int MEASURE;
         vg.removeAllViews();
         if(stage == 1) {

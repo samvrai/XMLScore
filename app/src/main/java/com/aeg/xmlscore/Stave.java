@@ -128,6 +128,9 @@ public class Stave extends FragmentActivity {
 
             if(mNoteManager.getNoteManager().stageWeight(note.getStage()) + (note.getWeight()/2) <= mMeasureCounter.getmMC().getMax()) {
                 note.setFlagD(true);
+                if(mNoteManager.getNoteManager().stageWeight(note.getStage()) == mMeasureCounter.getmMC().getMax()) {
+                    AdapterManager.getMaM().getpAdapter().addStage();
+                }
             } else {
                 Toast.makeText(this, "No room for this note", Toast.LENGTH_SHORT).show();
             }
