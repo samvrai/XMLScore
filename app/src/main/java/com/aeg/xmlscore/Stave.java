@@ -87,6 +87,7 @@ public class Stave extends FragmentActivity {
             e.printStackTrace();
         }
         Writer.getmWriter().saveJson(noteList, mTools.getTools().getName(), this);
+        Toast.makeText(this, "Stave has been saved as JSON", Toast.LENGTH_SHORT).show();
     }
 
     @Override
