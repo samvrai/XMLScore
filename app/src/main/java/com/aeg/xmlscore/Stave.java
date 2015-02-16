@@ -40,7 +40,7 @@ public class Stave extends FragmentActivity {
         notesPager = (ViewPager) findViewById(R.id.lNotes);
         notesPager.setAdapter(nAdapter);
 
-        AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager, this);
+        AdapterManager.getMaM().loader(pAdapter, nAdapter, vpager, notesPager);
 
         for(int i = 1; i <= mNoteManager.getNoteManager().howManyStages(); i++) {
             addStage(null);
@@ -179,10 +179,9 @@ public class Stave extends FragmentActivity {
         mTools.getTools().relocate(stage, vg);
         AdapterManager.getMaM().getNotesPager().setCurrentItem(0);
 
-        if(mNoteManager.getNoteManager().notesAtStage(AdapterManager.getMaM().getVpager().getCurrentItem() + 1).size() == 0 && mNoteManager.getNoteManager().howManyStages() > 1) {
+        if(mNoteManager.getNoteManager().getStageSize(stage) == 0 && mNoteManager.getNoteManager().howManyStages() > 1) {
             AdapterManager.getMaM().getpAdapter().remove();
         }
-
         AdapterManager.getMaM().updateTexts();
     }
 }

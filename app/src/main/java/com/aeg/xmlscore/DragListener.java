@@ -108,12 +108,6 @@ public class DragListener implements View.OnDragListener {
         if(!added) {
             mNoteManager.getNoteManager().addNote(note);
         }
-        /**
-         * Store note and relocate all the notes in the current stave to fit them.
-         * Reload the views.
-         *
-         * Ends returning lines to original state.
-         */
 
         AdapterManager.getMaM().updateTexts();
 

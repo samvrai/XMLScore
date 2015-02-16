@@ -71,7 +71,7 @@ public class mNoteManager {
 
     public int howManyStages() {
         int res = 1;
-        int actual = 0;
+        int actual = 1;
         Iterator<Note> it = this.noteList.iterator();
         Note note = null;
         while(it.hasNext()) {
@@ -80,6 +80,10 @@ public class mNoteManager {
                 res++;
                 actual = note.getStage();
             }
+        }
+
+        if(stageWeight(res) == mMeasureCounter.getmMC().getMax()) {
+            res++;
         }
 
         return res;
@@ -188,10 +192,6 @@ public class mNoteManager {
     }
 
     public void removeNote() { this.noteList.remove(this.inTransaction);}
-
-    public void setInTransaction(Note pNote) {
-        this.inTransaction = pNote;
-    }
 
     public void reset() {
         mNM = null;

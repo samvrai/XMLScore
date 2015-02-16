@@ -13,18 +13,16 @@ public class AdapterManager {
     private ViewPager vpager;
     private ViewPager notesPager;
     private static AdapterManager mAm;
-    private Context ctx;
 
 
     private AdapterManager() {
     }
 
-    public void loader(ViewPageAdapter vpa, NotesAdapter na, ViewPager vp, ViewPager np, Context ctxt) {
+    public void loader(ViewPageAdapter vpa, NotesAdapter na, ViewPager vp, ViewPager np) {
         this.pAdapter = vpa;
         this.nAdapter = na;
         this.vpager = vp;
         this.notesPager = np;
-        this.ctx = ctxt;
         this.notesPager.setOffscreenPageLimit(2);
 
     }

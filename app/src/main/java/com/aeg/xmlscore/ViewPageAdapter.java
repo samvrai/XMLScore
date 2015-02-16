@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,4 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter{
         this.myStages.remove(myStages.size() - 1);
         this.notifyDataSetChanged();
     }
-
-
-
 }
