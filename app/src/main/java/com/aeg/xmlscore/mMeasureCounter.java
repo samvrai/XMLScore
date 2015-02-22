@@ -7,8 +7,9 @@ package com.aeg.xmlscore;
 public class mMeasureCounter {
 
     private static mMeasureCounter mMC;
-    private int num, den, max;
+    private int num, den;
     private int keyNum;
+    private float max;
 
     private mMeasureCounter() {
 
@@ -26,7 +27,7 @@ public class mMeasureCounter {
             max = num;
         }
         else {
-            max = num / 2;
+            max = (float)num / 2;
         }
     }
 
