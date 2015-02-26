@@ -108,7 +108,6 @@ public class DragListener implements View.OnDragListener {
         if(!added) {
             mNoteManager.getNoteManager().addNote(note);
         }
-
         AdapterManager.getMaM().updateTexts();
 
         mTools.getTools().relocate(this.ctx.getPosition(), newOwner);

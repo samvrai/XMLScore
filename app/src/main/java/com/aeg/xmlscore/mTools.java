@@ -272,12 +272,12 @@ public class mTools {
         final int MEASURE;
         vg.removeAllViews();
         if(stage == 1) {
-            keyPrint(((Stage)AdapterManager.getMaM().getpAdapter().getItem(stage - 1)).getLinesPlace());
+            keyPrint(((Stage)AdapterManager.getMaM().getpAdapter().getItem(0)).getLinesPlace());
             accumulate = 280;
             MEASURE = 900;
         } else {
             MEASURE = 1050;
-            accumulate = 0;
+            accumulate = 50;
         }
         float step = MEASURE / (mNoteManager.getNoteManager().notesAtStage(stage).size() + 1);
 
